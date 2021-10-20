@@ -6,6 +6,7 @@ import 'pages/search.dart';
 import 'pages/home.dart';
 
 void main() => runApp(MaterialApp(
+      initialRoute: '/home',
       routes: {
         '/': (context) => Loading(),
         '/home': (context) => Home(),
