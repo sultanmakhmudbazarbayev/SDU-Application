@@ -11,6 +11,10 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+        title: Text('Search'),
+      ),
       body: SafeArea(
         child: Text('Search'),
       ),

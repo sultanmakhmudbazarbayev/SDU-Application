@@ -11,6 +11,10 @@ class _BookmarksState extends State<Bookmarks> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+        title: Text('Bookmarks'),
+      ),
       body: SafeArea(
         child: Text('Bookmarks'),
       ),

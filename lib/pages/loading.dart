@@ -11,6 +11,10 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+        title: Text('Loading'),
+      ),
       body: SafeArea(
         child: Text('Loading'),
       ),
