@@ -1,5 +1,5 @@
 # Mobile Programming Project
 
-## Educational Purposed App
+## Educational Oriented App - SDU Academy
 
-It is educational purposed mobile app. 
+## What is SDU Academy?
