@@ -7,8 +7,9 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
         title: Text('Home'),
+        centerTitle: true,
+        backgroundColor: Colors.grey,
       ),
       body: SafeArea(
         child: Text('Home'),
