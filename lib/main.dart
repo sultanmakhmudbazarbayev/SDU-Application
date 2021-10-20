@@ -8,5 +8,8 @@ import 'pages/home.dart';
 void main() => runApp(MaterialApp(
       routes: {
         '/': (context) => Loading(),
+        '/home': (context) => Home(),
+        '/bookmarks': (context) => Bookmarks(),
+        '/search': (context) => Search(),
       },
     ));
