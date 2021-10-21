@@ -9,13 +9,14 @@ class Bookmarks extends StatefulWidget {
 
 class _BookmarksState extends State<Bookmarks> {
   @override
+  void initState() {
+    super.initState();
+    // Implement here!
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Bookmarks'),
-        centerTitle: true,
-        backgroundColor: Colors.grey,
-      ),
       body: SafeArea(
         child: Text('Bookmarks'),
       ),

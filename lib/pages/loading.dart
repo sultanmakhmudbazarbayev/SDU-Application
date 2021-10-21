@@ -9,13 +9,14 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
   @override
+  void initState() {
+    super.initState();
+    // Implement here!
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Loading'),
-        centerTitle: true,
-        backgroundColor: Colors.grey,
-      ),
       body: SafeArea(
         child: Text('Loading'),
       ),
