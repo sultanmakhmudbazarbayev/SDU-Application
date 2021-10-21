@@ -20,9 +20,13 @@ class _NavigationBarState extends State<NavigationBar> {
     Loading(),
   ];
   int _selectedItem = 0;
+  List<String> arrayOfTitles = ['SDU Academy', 'Search', 'Bookmarks'];
+
+  String appBarTItle = '';
 
   void _onItemTap(int item) {
     setState(() {
+      appBarTItle = arrayOfTitles[item];
       _selectedItem = item;
     });
   }
@@ -31,7 +35,7 @@ class _NavigationBarState extends State<NavigationBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SDU Academy'),
+        title: Text(appBarTItle),
         centerTitle: true,
         backgroundColor: Colors.grey,
       ),
@@ -45,11 +49,11 @@ class _NavigationBarState extends State<NavigationBar> {
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.search),
             title: Text('Search'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.bookmark),
             title: Text('Bookmarks'),
           ),
         ],
