@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
             width: double.maxFinite,
             child: Card(
               child: Text(
-                "First lesson",
+                "\nFirst lesson\n\n Your lessons are waiting For you!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
             width: double.maxFinite,
             child: Card(
               child: Text(
-                "Second lesson",
+                "\nSecond lesson\n\n Your lessons are waiting For you!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
               child: Column(
                 children: [
                   Text(
-                    "Third lesson",
+                    "\nThird lesson\n\n Your lessons are waiting For you!",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -85,7 +85,7 @@ class _HomeState extends State<Home> {
             width: double.maxFinite,
             child: Card(
               child: Text(
-                "Fourth lesson",
+                "\nFourth lesson\n\n Your lessons are waiting For you!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
