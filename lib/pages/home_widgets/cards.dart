@@ -9,6 +9,7 @@ class LessonCard {
 
   void addSubcard({String? topic, String? text}) {
     LessonSubcard? temp_subcard = LessonSubcard(topic: topic, text: text);
+
     lessonsSubcards!.add(temp_subcard);
   }
 }
