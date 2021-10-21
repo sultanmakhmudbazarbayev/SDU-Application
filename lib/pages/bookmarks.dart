@@ -17,9 +17,16 @@ class _BookmarksState extends State<Bookmarks> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Text('Bookmarks'),
+        body: Container(
+      alignment: Alignment.center,
+      child: Text(
+        "Here will be your Bookmarks!",
+        style: TextStyle(
+          fontSize: 20.0,
+          fontStyle: FontStyle.normal,
+          color: Colors.grey,
+        ),
       ),
-    );
+    ));
   }
 }
