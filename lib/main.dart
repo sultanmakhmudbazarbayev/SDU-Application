@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'pages/home.dart';
+import 'pages/navigation_bar.dart';
 
 void main() => runApp(
       MaterialApp(
-        home: Home(),
+        home: NavigationBar(),
       ),
     );

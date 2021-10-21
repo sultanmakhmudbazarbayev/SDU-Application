@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'bookmarks.dart';
 import 'loading.dart';
 import 'search.dart';
+import 'home.dart';
 
 class NavigationBar extends StatefulWidget {
   const NavigationBar({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar> {
   List<Widget> _screens = <Widget>[
-    Loading(),
+    Home(),
     Search(),
     Bookmarks(),
   ];
