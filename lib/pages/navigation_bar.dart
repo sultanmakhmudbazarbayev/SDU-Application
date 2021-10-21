@@ -48,9 +48,12 @@ class _NavigationBarState extends State<NavigationBar> {
           )
         ],
         leading: GestureDetector(
-          onTap: () {/* Write listener code here */},
+          onTap: () {
+            /* Write listener code here */
+          },
           child: Icon(
-            Icons.menu, // add custom icons also
+            Icons.menu,
+            // add custom icons also
           ),
         ),
 
