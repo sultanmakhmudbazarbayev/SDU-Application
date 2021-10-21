@@ -6,7 +6,7 @@ import 'search.dart';
 import 'home.dart';
 
 class NavigationBar extends StatefulWidget {
-  const NavigationBar({Key? key}) : super(key: key);
+  const NavigationBar({Key key}) : super(key: key);
 
   @override
   _NavigationBarState createState() => _NavigationBarState();

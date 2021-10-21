@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Bookmarks extends StatefulWidget {
-  const Bookmarks({Key? key}) : super(key: key);
+  const Bookmarks({Key key}) : super(key: key);
 
   @override
   _BookmarksState createState() => _BookmarksState();
