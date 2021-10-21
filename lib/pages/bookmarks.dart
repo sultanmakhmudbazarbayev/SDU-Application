@@ -54,7 +54,7 @@ class _BookmarksState extends State<Bookmarks> {
                   fit: BoxFit.fitHeight,
                 ),
                 Text("You have no bookmarks.",style: TextStyle(fontWeight: FontWeight.w600, fontSize: 26)),
-                Text("You can download videos in Bookmarks for offline viewing",style: TextStyle(fontWeight: FontWeight.w400, fontSize: 22))
+                Text("You can download videos in Bookmarks for offline viewing", textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.w400, fontSize: 22))
               ],
             )
           ],
