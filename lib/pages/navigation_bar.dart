@@ -17,6 +17,7 @@ class _NavigationBarState extends State<NavigationBar> {
     Home(),
     Search(),
     Bookmarks(),
+    Loading(),
   ];
   int _selectedItem = 0;
 
