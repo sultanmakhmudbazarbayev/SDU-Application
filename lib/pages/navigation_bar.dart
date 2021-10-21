@@ -36,8 +36,26 @@ class _NavigationBarState extends State<NavigationBar> {
     return Scaffold(
       appBar: AppBar(
         title: Text(appBarTItle),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // do something
+            },
+          )
+        ],
+        leading: GestureDetector(
+          onTap: () {/* Write listener code here */},
+          child: Icon(
+            Icons.menu, // add custom icons also
+          ),
+        ),
+
         centerTitle: true,
-        backgroundColor: Colors.grey,
+        // backgroundColor: Colors.grey,
       ),
       body: SafeArea(
         child: _screens.elementAt(_selectedItem),
