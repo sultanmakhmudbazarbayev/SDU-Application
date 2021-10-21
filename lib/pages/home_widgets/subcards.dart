@@ -1,6 +1,14 @@
 class LessonSubcard {
   String? topic;
-  String? name;
+  String? text;
 
-  LessonSubcard({this.topic, this.name});
+  LessonSubcard({this.topic, this.text});
+
+  void setName({String? text}) {
+    this.text = text;
+  }
+
+  void setTopic({String? topic}) {
+    this.topic = topic;
+  }
 }
