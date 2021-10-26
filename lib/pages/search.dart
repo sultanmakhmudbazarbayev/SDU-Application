@@ -193,28 +193,107 @@ class SearchResultsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     if (searchTerm == null) {
       return Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              "Math",
-              style: TextStyle(
-                fontSize: 30.0,
-                color: Colors.grey[600],
-              ),
-            ),
-            SizedBox(height: 6.0),
-            Text(
-              "Science",
-              style: TextStyle(
-                fontSize: 30.0,
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(20.0, 70.0, 30.0, 0.0),
+          child: ListView(
+            children: [
+            Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                  "Browse SDU Academy",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    letterSpacing: 2.0, // 2 pixels between each letter
+                  ),
+                ),
+              Divider( // This is line between elements here
+                height: 40.0,
                 color: Colors.grey[800],
               ),
-            ),
-            SizedBox(height: 8.0),
-          ],
-        ),
-      );
+              Text(
+                'Math',
+                style: TextStyle(
+                  color: Colors.black,
+                  letterSpacing: 2.0, // 2 pixels between each letter
+                ),
+              ),
+              Divider( // This is line between elements here
+                height: 40.0,
+                color: Colors.grey[800],
+              ), // It will appear as a space
+              Text(
+                  'Science',
+                style: TextStyle(
+                  color: Colors.black,
+                  letterSpacing: 2.0, // 2 pixels between each letter
+                ),
+              ),
+              Divider( // This is line between elements here
+                height: 40.0,
+                color: Colors.grey[800],
+              ),
+              Text(
+                'Economics',
+                style: TextStyle(
+                  color: Colors.black,
+                  letterSpacing: 2.0, // 2 pixels between each letter
+                ),
+              ),
+              Divider( // This is line between elements here
+                height: 40.0,
+                color: Colors.grey[800],
+              ),
+              Text(
+                  'Arts and humanities',
+                style: TextStyle(
+                  color: Colors.black,
+                  letterSpacing: 2.0, // 2 pixels between each letter
+                ),
+              ),
+              Divider( // This is line between elements here
+                height: 40.0,
+                color: Colors.grey[800],
+              ),
+              Text(
+                'Computing',
+                style: TextStyle(
+                  color: Colors.black,
+                  letterSpacing: 2.0, // 2 pixels between each letter
+                ),
+              ),
+              Divider( // This is line between elements here
+                height: 40.0,
+                color: Colors.grey[800],
+              ),
+              Text(
+                'Test prep',
+                style: TextStyle(
+                  color: Colors.black,
+                  letterSpacing: 2.0, // 2 pixels between each letter
+                ),
+              ),
+              Divider( // This is line between elements here
+                height: 40.0,
+                color: Colors.grey[800],
+              ),
+              Text(
+                'Life skills',
+                style: TextStyle(
+                  color: Colors.black,
+                  letterSpacing: 2.0, // 2 pixels between each letter
+                ),
+              ),
+              Divider( // This is line between elements here
+                height: 40.0,
+                color: Colors.grey[800],
+              ),
+        ]
+          ),
+    ],
+          ),
+      )
+    );
     }
 
     final fsb = FloatingSearchBar.of(context);
