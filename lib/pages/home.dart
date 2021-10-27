@@ -13,6 +13,8 @@ class _HomeState extends State<Home> {
 
   List<String> _values = ['Math', 'Science', 'Economics', 'Art and humanities', 'Computing'];
   List<String> _descriptions = ['\n Your lessons are waiting For you!', '\n Your lessons are waiting For you!', '\n Your lessons are waiting For you!', '\n Your lessons are waiting For you!', '\n Your lessons are waiting For you!'];
+  
+
 
   @override
   Widget build(BuildContext context) {
