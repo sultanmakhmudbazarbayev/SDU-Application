@@ -1,0 +1,28 @@
+{
+  "name": "sdu-academy-api",
+  "version": "1.0.0",
+  "description": "Rest API for SDU Academy",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start_pm2": "pm2 start app.js --name sdu-academy-api",
+    "restart": "pm2 restart sdu-academy-api --update-env",
+    "monit": "start pm2 monit"
+  },
+  "author": "baha",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/preset-env": "^7.15.8"
+  }
+}
