@@ -22,14 +22,15 @@ class AuthController {
 
     async login(req, res) {
         try {
-            const { name, email, password } = req.body;
-            let user = await UserService.findOne({ email: email })
-            user = { name: user.name, email: user.email, password: user.password };
+            const { email, password } = req.body;
+            let user = await UserService.findByEmail(email)
+            user = { name: user.name, email: user.email, password: user.password, createdAt: user.createdAt };
             if (user) {
                 const validPassword = await bcrypt.compare(password, user.password)
                 if (validPassword) {
                     const token = JWTService.generateAccessToken(user)
-                    res.status(200).json({ message: "Valid password", jwt: token })
+                    delete user.password;
+                    res.status(200).json({ message: "Valid password", jwt: token , user: user})
                 } else {
                     res.status(400).json({ error: "Invalid Password" })
                 }
