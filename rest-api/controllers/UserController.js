@@ -1,19 +1,13 @@
-const User = require("../models/User.js")
+const UserService = require("../services/UserService.js")
 
 class UserController {
-    async create(userData) {
-        let user = await User.create(userData)
-        // return { name, email, createdAt, updatedAt } = user;
-        return user;
-    }
-
     async getAll() {
-        return users = User.find()
+        return users = UserService.find()
     }
 
     async findOne(req, res) {
         const { id } = req.body;
-        user = await User.findById(id)
+        user = await UserService.findById(id)
         return res.json(user);
     }
 }
