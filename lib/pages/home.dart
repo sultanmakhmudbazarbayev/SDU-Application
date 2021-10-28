@@ -87,13 +87,7 @@ class LessonCard extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
+            Container(),
           ],
         ),
       ),
