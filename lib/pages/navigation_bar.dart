@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'bookmarks.dart';
-import 'drawer.dart';
+import 'home_widgets/NavigationDrawerWidget.dart';
 import 'loading.dart';
 import 'search.dart';
 import 'home.dart';
@@ -47,7 +47,7 @@ class _NavigationBarState extends State<NavigationBar> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        drawer: new Drawer(),
+        drawer: NavigationDrawerWidget(),
         appBar: AppBar(
           foregroundColor: const Color(0xFF131315),
           titleTextStyle: TextStyle(
