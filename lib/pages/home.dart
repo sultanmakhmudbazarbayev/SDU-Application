@@ -10,11 +10,20 @@ class Home extends StatefulWidget {
 double heihtOfContainer = 120;
 
 class _HomeState extends State<Home> {
-
-  List<String> _values = ['Math', 'Science', 'Economics', 'Art and humanities', 'Computing'];
-  List<String> _descriptions = ['\n Your lessons are waiting For you!', '\n Your lessons are waiting For you!', '\n Your lessons are waiting For you!', '\n Your lessons are waiting For you!', '\n Your lessons are waiting For you!'];
-  
-
+  List<String> _values = [
+    'Math',
+    'Science',
+    'Economics',
+    'Art and humanities',
+    'Computing'
+  ];
+  List<String> _descriptions = [
+    '\n Your lessons are waiting For you!',
+    '\n Your lessons are waiting For you!',
+    '\n Your lessons are waiting For you!',
+    '\n Your lessons are waiting For you!',
+    '\n Your lessons are waiting For you!'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +34,8 @@ class _HomeState extends State<Home> {
             itemCount: _values.length,
             padding: const EdgeInsets.all(5.0),
             separatorBuilder: (context, index) => Divider(
-              color: Colors.black,
-            ),
+                  color: Colors.black,
+                ),
             itemBuilder: (context, index) {
               return Dismissible(
                 key: Key('item ${_values[index]}'),
@@ -37,7 +46,8 @@ class _HomeState extends State<Home> {
                     child: Row(
                       children: <Widget>[
                         Icon(Icons.favorite, color: Colors.white),
-                        Text('Move to favorites', style: TextStyle(color: Colors.white)),
+                        Text('Move to favorites',
+                            style: TextStyle(color: Colors.white)),
                       ],
                     ),
                   ),
@@ -50,7 +60,8 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         Icon(Icons.delete, color: Colors.white),
-                        Text('Move to trash', style: TextStyle(color: Colors.white)),
+                        Text('Move to trash',
+                            style: TextStyle(color: Colors.white)),
                       ],
                     ),
                   ),
@@ -61,12 +72,12 @@ class _HomeState extends State<Home> {
                     builder: (BuildContext context) {
                       return AlertDialog(
                         title: const Text("Delete Confirmation"),
-                        content: const Text("Are you sure you want to delete this item from Recommendation?"),
+                        content: const Text(
+                            "Are you sure you want to delete this item from Recommendation?"),
                         actions: <Widget>[
                           FlatButton(
                               onPressed: () => Navigator.of(context).pop(true),
-                              child: const Text("Delete")
-                          ),
+                              child: const Text("Delete")),
                           FlatButton(
                             onPressed: () => Navigator.of(context).pop(false),
                             child: const Text("Cancel"),
@@ -93,12 +104,11 @@ class _HomeState extends State<Home> {
                   subtitle: Text(_descriptions[index]),
                 ),
               );
-            }
-        ),
+            }),
       ),
     );
   }
-  }
+}
 
 
 
