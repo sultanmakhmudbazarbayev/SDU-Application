@@ -100,6 +100,11 @@ class _SearchState extends State<Search> {
         ),
         borderRadius: BorderRadius.circular(10),
         hint: 'Search and find out...',
+        hintStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          color: Colors.grey,
+          fontSize: 17,
+        ),
         actions: [
           FloatingSearchBarAction.searchToClear(),
         ],
@@ -204,109 +209,21 @@ class SearchResultsListView extends StatelessWidget {
     if (searchTerm == null) {
       return Center(
           child: Padding(
-        padding: EdgeInsets.fromLTRB(20.0, 70.0, 30.0, 0.0),
+        padding: EdgeInsets.fromLTRB(20.0, 80.0, 30.0, 0.0),
         child: ListView(
           children: [
             Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Browse SDU Academy",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      letterSpacing: 2.0, // 2 pixels between each letter
-                    ),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "Browse courses",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    letterSpacing: 1.0,
                   ),
-                  Divider(
-                    // This is line between elements here
-                    height: 40.0,
-                    color: Colors.grey[800],
-                  ),
-                  Text(
-                    'Math',
-                    style: TextStyle(
-                      color: Colors.black,
-                      letterSpacing: 2.0, // 2 pixels between each letter
-                    ),
-                  ),
-                  Divider(
-                    // This is line between elements here
-                    height: 40.0,
-                    color: Colors.grey[800],
-                  ), // It will appear as a space
-                  Text(
-                    'Science',
-                    style: TextStyle(
-                      color: Colors.black,
-                      letterSpacing: 2.0, // 2 pixels between each letter
-                    ),
-                  ),
-                  Divider(
-                    // This is line between elements here
-                    height: 40.0,
-                    color: Colors.grey[800],
-                  ),
-                  Text(
-                    'Economics',
-                    style: TextStyle(
-                      color: Colors.black,
-                      letterSpacing: 2.0, // 2 pixels between each letter
-                    ),
-                  ),
-                  Divider(
-                    // This is line between elements here
-                    height: 40.0,
-                    color: Colors.grey[800],
-                  ),
-                  Text(
-                    'Arts and humanities',
-                    style: TextStyle(
-                      color: Colors.black,
-                      letterSpacing: 2.0, // 2 pixels between each letter
-                    ),
-                  ),
-                  Divider(
-                    // This is line between elements here
-                    height: 40.0,
-                    color: Colors.grey[800],
-                  ),
-                  Text(
-                    'Computing',
-                    style: TextStyle(
-                      color: Colors.black,
-                      letterSpacing: 2.0, // 2 pixels between each letter
-                    ),
-                  ),
-                  Divider(
-                    // This is line between elements here
-                    height: 40.0,
-                    color: Colors.grey[800],
-                  ),
-                  Text(
-                    'Test prep',
-                    style: TextStyle(
-                      color: Colors.black,
-                      letterSpacing: 2.0, // 2 pixels between each letter
-                    ),
-                  ),
-                  Divider(
-                    // This is line between elements here
-                    height: 40.0,
-                    color: Colors.grey[800],
-                  ),
-                  Text(
-                    'Life skills',
-                    style: TextStyle(
-                      color: Colors.black,
-                      letterSpacing: 2.0, // 2 pixels between each letter
-                    ),
-                  ),
-                  Divider(
-                    // This is line between elements here
-                    height: 40.0,
-                    color: Colors.grey[800],
-                  ),
-                ]),
+                ),
+              ],
+            ),
           ],
         ),
       ));
@@ -317,7 +234,7 @@ class SearchResultsListView extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.only(top: fsb.height + fsb.margins.vertical),
       children: List.generate(
-        50,
+        10,
         (index) => ListTile(
           title: Text('$searchTerm search result'),
           subtitle: Text(index.toString()),
