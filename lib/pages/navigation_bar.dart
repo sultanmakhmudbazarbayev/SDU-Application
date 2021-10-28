@@ -23,12 +23,12 @@ class _NavigationBarState extends State<NavigationBar> {
     Bookmarks(),
   ];
 
-  int _selectedItem = 0;
   List<String> arrayOfTitles = ['Study', 'Search', 'Bookmarks'];
-
   String appBarTitle = 'Study';
 
   PageController _pageController = PageController();
+
+  int _selectedItem = 0;
 
   void _onItemTap(int item) {
     setState(() {
@@ -46,7 +46,6 @@ class _NavigationBarState extends State<NavigationBar> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: _scaffoldKey,
         drawer: NavigationDrawerWidget(),
         appBar: AppBar(
           foregroundColor: const Color(0xFF131315),
@@ -81,6 +80,7 @@ class _NavigationBarState extends State<NavigationBar> {
           onPageChanged: (page) {
             setState(() {
               _selectedItem = page;
+              appBarTitle = arrayOfTitles[page];
             });
           },
         ),
