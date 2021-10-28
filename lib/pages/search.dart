@@ -9,14 +9,13 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-
   static const historyLength = 5;
 
   List<String> _searchHistory = [
-    'fuchsia',
-    'flutter',
-    'widgets',
-    'resocoder',
+    'math',
+    'physics',
+    'astronomy',
+    'geometry',
   ];
 
   List<String> filteredSearchHistory;
@@ -77,19 +76,29 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF3F5F7),
       body: FloatingSearchBar(
+        margins: const EdgeInsets.only(left: 13, right: 13, top: 13),
+        padding: const EdgeInsets.fromLTRB(8, 3, 1, 1),
+        elevation: 3,
         controller: controller,
         body: FloatingSearchBarScrollNotifier(
           child: SearchResultsListView(
-            searchTerm: selectedTerm, key: null,
+            searchTerm: selectedTerm,
+            key: null,
           ),
         ),
         transition: CircularFloatingSearchBarTransition(),
         physics: BouncingScrollPhysics(),
         title: Text(
-          selectedTerm ?? 'The Search App',
-          style: Theme.of(context).textTheme.headline6,
+          selectedTerm ?? 'Search...',
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            color: Colors.grey,
+            fontSize: 17,
+          ),
         ),
+        borderRadius: BorderRadius.circular(10),
         hint: 'Search and find out...',
         actions: [
           FloatingSearchBarAction.searchToClear(),
@@ -110,8 +119,9 @@ class _SearchState extends State<Search> {
           return ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: Material(
+              animationDuration: Duration(milliseconds: 900),
               color: Colors.white,
-              elevation: 4,
+              elevation: 2,
               child: Builder(
                 builder: (context) {
                   if (filteredSearchHistory.isEmpty &&
@@ -145,29 +155,29 @@ class _SearchState extends State<Search> {
                       children: filteredSearchHistory
                           .map(
                             (term) => ListTile(
-                          title: Text(
-                            term,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          leading: const Icon(Icons.history),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.clear),
-                            onPressed: () {
-                              setState(() {
-                                deleteSearchTerm(term);
-                              });
-                            },
-                          ),
-                          onTap: () {
-                            setState(() {
-                              putSearchTermFirst(term);
-                              selectedTerm = term;
-                            });
-                            controller.close();
-                          },
-                        ),
-                      )
+                              title: Text(
+                                term,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              leading: const Icon(Icons.history),
+                              trailing: IconButton(
+                                icon: const Icon(Icons.clear),
+                                onPressed: () {
+                                  setState(() {
+                                    deleteSearchTerm(term);
+                                  });
+                                },
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  putSearchTermFirst(term);
+                                  selectedTerm = term;
+                                });
+                                controller.close();
+                              },
+                            ),
+                          )
                           .toList(),
                     );
                   }
@@ -193,107 +203,113 @@ class SearchResultsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     if (searchTerm == null) {
       return Center(
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(20.0, 70.0, 30.0, 0.0),
-          child: ListView(
-            children: [
+          child: Padding(
+        padding: EdgeInsets.fromLTRB(20.0, 70.0, 30.0, 0.0),
+        child: ListView(
+          children: [
             Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                  "Browse SDU Academy",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    letterSpacing: 2.0, // 2 pixels between each letter
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Browse SDU Academy",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      letterSpacing: 2.0, // 2 pixels between each letter
+                    ),
                   ),
-                ),
-              Divider( // This is line between elements here
-                height: 40.0,
-                color: Colors.grey[800],
-              ),
-              Text(
-                'Math',
-                style: TextStyle(
-                  color: Colors.black,
-                  letterSpacing: 2.0, // 2 pixels between each letter
-                ),
-              ),
-              Divider( // This is line between elements here
-                height: 40.0,
-                color: Colors.grey[800],
-              ), // It will appear as a space
-              Text(
-                  'Science',
-                style: TextStyle(
-                  color: Colors.black,
-                  letterSpacing: 2.0, // 2 pixels between each letter
-                ),
-              ),
-              Divider( // This is line between elements here
-                height: 40.0,
-                color: Colors.grey[800],
-              ),
-              Text(
-                'Economics',
-                style: TextStyle(
-                  color: Colors.black,
-                  letterSpacing: 2.0, // 2 pixels between each letter
-                ),
-              ),
-              Divider( // This is line between elements here
-                height: 40.0,
-                color: Colors.grey[800],
-              ),
-              Text(
-                  'Arts and humanities',
-                style: TextStyle(
-                  color: Colors.black,
-                  letterSpacing: 2.0, // 2 pixels between each letter
-                ),
-              ),
-              Divider( // This is line between elements here
-                height: 40.0,
-                color: Colors.grey[800],
-              ),
-              Text(
-                'Computing',
-                style: TextStyle(
-                  color: Colors.black,
-                  letterSpacing: 2.0, // 2 pixels between each letter
-                ),
-              ),
-              Divider( // This is line between elements here
-                height: 40.0,
-                color: Colors.grey[800],
-              ),
-              Text(
-                'Test prep',
-                style: TextStyle(
-                  color: Colors.black,
-                  letterSpacing: 2.0, // 2 pixels between each letter
-                ),
-              ),
-              Divider( // This is line between elements here
-                height: 40.0,
-                color: Colors.grey[800],
-              ),
-              Text(
-                'Life skills',
-                style: TextStyle(
-                  color: Colors.black,
-                  letterSpacing: 2.0, // 2 pixels between each letter
-                ),
-              ),
-              Divider( // This is line between elements here
-                height: 40.0,
-                color: Colors.grey[800],
-              ),
-        ]
-          ),
-    ],
-          ),
-      )
-    );
+                  Divider(
+                    // This is line between elements here
+                    height: 40.0,
+                    color: Colors.grey[800],
+                  ),
+                  Text(
+                    'Math',
+                    style: TextStyle(
+                      color: Colors.black,
+                      letterSpacing: 2.0, // 2 pixels between each letter
+                    ),
+                  ),
+                  Divider(
+                    // This is line between elements here
+                    height: 40.0,
+                    color: Colors.grey[800],
+                  ), // It will appear as a space
+                  Text(
+                    'Science',
+                    style: TextStyle(
+                      color: Colors.black,
+                      letterSpacing: 2.0, // 2 pixels between each letter
+                    ),
+                  ),
+                  Divider(
+                    // This is line between elements here
+                    height: 40.0,
+                    color: Colors.grey[800],
+                  ),
+                  Text(
+                    'Economics',
+                    style: TextStyle(
+                      color: Colors.black,
+                      letterSpacing: 2.0, // 2 pixels between each letter
+                    ),
+                  ),
+                  Divider(
+                    // This is line between elements here
+                    height: 40.0,
+                    color: Colors.grey[800],
+                  ),
+                  Text(
+                    'Arts and humanities',
+                    style: TextStyle(
+                      color: Colors.black,
+                      letterSpacing: 2.0, // 2 pixels between each letter
+                    ),
+                  ),
+                  Divider(
+                    // This is line between elements here
+                    height: 40.0,
+                    color: Colors.grey[800],
+                  ),
+                  Text(
+                    'Computing',
+                    style: TextStyle(
+                      color: Colors.black,
+                      letterSpacing: 2.0, // 2 pixels between each letter
+                    ),
+                  ),
+                  Divider(
+                    // This is line between elements here
+                    height: 40.0,
+                    color: Colors.grey[800],
+                  ),
+                  Text(
+                    'Test prep',
+                    style: TextStyle(
+                      color: Colors.black,
+                      letterSpacing: 2.0, // 2 pixels between each letter
+                    ),
+                  ),
+                  Divider(
+                    // This is line between elements here
+                    height: 40.0,
+                    color: Colors.grey[800],
+                  ),
+                  Text(
+                    'Life skills',
+                    style: TextStyle(
+                      color: Colors.black,
+                      letterSpacing: 2.0, // 2 pixels between each letter
+                    ),
+                  ),
+                  Divider(
+                    // This is line between elements here
+                    height: 40.0,
+                    color: Colors.grey[800],
+                  ),
+                ]),
+          ],
+        ),
+      ));
     }
 
     final fsb = FloatingSearchBar.of(context);
@@ -302,7 +318,7 @@ class SearchResultsListView extends StatelessWidget {
       padding: EdgeInsets.only(top: fsb.height + fsb.margins.vertical),
       children: List.generate(
         50,
-            (index) => ListTile(
+        (index) => ListTile(
           title: Text('$searchTerm search result'),
           subtitle: Text(index.toString()),
         ),
