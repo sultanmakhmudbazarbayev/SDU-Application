@@ -10,22 +10,6 @@ class Home extends StatefulWidget {
 double heihtOfContainer = 120;
 
 class _HomeState extends State<Home> {
-  List<String> _values = [
-    'Math',
-    'Science',
-    'Economics',
-    'Art and humanities',
-    'Computing'
-  ];
-
-  List<String> _descriptions = [
-    '\n Your lessons are waiting For you!',
-    '\n Your lessons are waiting For you!',
-    '\n Your lessons are waiting For you!',
-    '\n Your lessons are waiting For you!',
-    '\n Your lessons are waiting For you!'
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,11 +20,6 @@ class _HomeState extends State<Home> {
           children: [
             LessonCard(header: 'Linear Algebra'),
             LessonCard(header: 'Calculus'),
-            LessonCard(header: 'Physics'),
-            LessonCard(header: 'Physics'),
-            LessonCard(header: 'Physics'),
-            LessonCard(header: 'Physics'),
-            LessonCard(header: 'Physics'),
             LessonCard(header: 'Physics'),
             LessonCard(header: 'Astronomy'),
             LessonCard(header: 'Programming'),
@@ -54,8 +33,9 @@ class _HomeState extends State<Home> {
 
 class LessonCard extends StatelessWidget {
   final String header;
+  final String description;
 
-  const LessonCard({Key key, this.header}) : super(key: key);
+  const LessonCard({Key key, this.header, this.description}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -68,19 +48,49 @@ class LessonCard extends StatelessWidget {
         ),
         color: Colors.white,
         elevation: 2,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.only(left: 20, top: 15),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  '$header',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 22, top: 20),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        '$header',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
                   ),
+                  Container(
+                    padding: EdgeInsets.only(
+                        left: 20, right: 15, top: 10, bottom: 10),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        '$description',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
                 ),
               ),
             ),

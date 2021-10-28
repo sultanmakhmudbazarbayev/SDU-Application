@@ -26,7 +26,7 @@ class _BookmarksState extends State<Bookmarks> {
       backgroundColor: Color(0xFFF3F5F7),
       body: Card(
         elevation: 3,
-        margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+        margin: EdgeInsets.fromLTRB(16, 13, 16, 0),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
