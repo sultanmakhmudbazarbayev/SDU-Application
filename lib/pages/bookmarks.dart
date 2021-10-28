@@ -22,120 +22,49 @@ class _BookmarksState extends State<Bookmarks> {
   }
 
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              favorites[0],
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.grey[600],
+    return Scaffold(
+      backgroundColor: Color(0xFFF3F5F7),
+      body: Card(
+        elevation: 3,
+        margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text(
+                favorites[0],
+                style: TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.grey[600],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 6.0,
-            ),
-            Text(
-              "Let's Start your course!",
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey[800],
+              SizedBox(
+                height: 6.0,
               ),
-            ),
-            SizedBox(
-              height: 8.0,
-            ),
-            TextButton.icon(
-              //onPressed: delete,
-              label: Text('Delete course'),
-              icon: Icon(Icons.delete),
-            ),
-            Text(
-              favorites[1],
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.grey[600],
+              Text(
+                "Let's Start your course!",
+                style: TextStyle(
+                  fontSize: 14.0,
+                  color: Colors.grey[800],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 6.0,
-            ),
-            Text(
-              "Let's Start your course!",
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey[800],
+              SizedBox(
+                height: 8.0,
               ),
-            ),
-            SizedBox(
-              height: 8.0,
-            ),
-            TextButton.icon(
-              //onPressed: delete,
-              label: Text('Delete course'),
-              icon: Icon(Icons.delete),
-            ),
-            Text(
-              favorites[2],
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.grey[600],
+              TextButton.icon(
+                label: Text('Delete course'),
+                icon: Icon(Icons.delete),
               ),
-            ),
-            SizedBox(
-              height: 6.0,
-            ),
-            Text(
-              "Let's Start your course!",
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey[800],
-              ),
-            ),
-            SizedBox(
-              height: 8.0,
-            ),
-            TextButton.icon(
-              //onPressed: delete,
-              label: Text('Delete course'),
-              icon: Icon(Icons.delete),
-            ),
-            Text(
-              favorites[3],
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.grey[600],
-              ),
-            ),
-            SizedBox(
-              height: 6.0,
-            ),
-            Text(
-              "Let's Start your course!",
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey[800],
-              ),
-            ),
-            SizedBox(
-              height: 8.0,
-            ),
-            TextButton.icon(
-              onPressed: () {},
-              label: Text('Delete course'),
-              icon: Icon(Icons.delete),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
-//
+
+
 //class Bookmarks extends StatefulWidget {
 //  const Bookmarks({Key key}) : super(key: key);
 //
