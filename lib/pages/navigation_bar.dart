@@ -23,12 +23,12 @@ class _NavigationBarState extends State<NavigationBar> {
     Bookmarks(),
   ];
 
-  int _selectedItem = 0;
   List<String> arrayOfTitles = ['Study', 'Search', 'Bookmarks'];
-
   String appBarTitle = 'Study';
 
   PageController _pageController = PageController();
+
+  int _selectedItem = 0;
 
   void _onItemTap(int item) {
     setState(() {
