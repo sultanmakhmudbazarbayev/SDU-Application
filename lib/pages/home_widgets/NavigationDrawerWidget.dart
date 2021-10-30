@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/bookmarks.dart';
 
 import 'PeoplePage.dart';
 
@@ -22,32 +23,26 @@ class NavigationDrawerWidget extends StatelessWidget {
             const SizedBox(height: 16),
             buildMenuItem(
               text: 'Favorites',
-              icon: Icons.people,
-              onClicked: () => selectedItem(context, 1),
-            ),
-            const SizedBox(height: 16),
-            buildMenuItem(
-              text: 'Favorites',
               icon: Icons.favorite_border,
-              onClicked: () => selectedItem(context, 2),
+              onClicked: () => selectedItem(context, 1),
             ),
             const SizedBox(height: 16),
             buildMenuItem(
               text: 'Workflow',
               icon: Icons.workspaces_outline,
-              onClicked: () => selectedItem(context, 3),
+              onClicked: () => selectedItem(context, 2),
             ),
             const SizedBox(height: 16),
             buildMenuItem(
               text: 'Updates',
               icon: Icons.update,
-              onClicked: () => selectedItem(context, 4),
+              onClicked: () => selectedItem(context, 3),
             ),
             const SizedBox(height: 16),
             buildMenuItem(
               text: 'QA SDU Academy',
               icon: Icons.question_answer,
-              onClicked: () => selectedItem(context, 5),
+              onClicked: () => selectedItem(context, 4),
             ),
             const SizedBox(height: 20),
             Divider(color: Colors.white70),
@@ -55,12 +50,12 @@ class NavigationDrawerWidget extends StatelessWidget {
             buildMenuItem(
               text: 'Plugins',
               icon: Icons.account_tree_outlined,
-              onClicked: () => selectedItem(context, 6),
+              onClicked: () => selectedItem(context, 5),
             ),
             buildMenuItem(
               text: 'Notifications',
               icon: Icons.notifications,
-              onClicked: () => selectedItem(context, 7),
+              onClicked: () => selectedItem(context, 6),
             ),
           ],
         ),
@@ -69,11 +64,10 @@ class NavigationDrawerWidget extends StatelessWidget {
   }
 
   buildMenuItem({
-      String text, 
-      IconData icon,
-      VoidCallback onClicked,
-
-    }) {
+    String text,
+    IconData icon,
+    VoidCallback onClicked,
+  }) {
     final color = Colors.white;
     final hoverColor = Colors.white70;
 
@@ -93,14 +87,16 @@ class NavigationDrawerWidget extends StatelessWidget {
 
   selectedItem(BuildContext context, int i) {
     switch (i) {
-      case 0: 
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => PeoplePage(),
+      case 0:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => PeoplePage(),
         ));
         break;
-      case 1: 
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => PeoplePage(),
+      case 1:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => PeoplePage(),
         ));
-        break;  
+        break;
     }
   }
 }

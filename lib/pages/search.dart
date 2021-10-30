@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+
+import 'home_widgets/NavigationDrawerWidget.dart';
 
 class Search extends StatefulWidget {
   const Search({Key key}) : super(key: key);
@@ -76,6 +79,28 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //drawer: NavigationDrawerWidget(),
+      appBar: AppBar(
+        foregroundColor: const Color(0xFF131315),
+        titleTextStyle: TextStyle(
+          color: const Color(0xFF131315),
+          fontSize: 18,
+        ),
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: const Color(0xFFF3F5F7), // Status bar
+          statusBarIconBrightness: Brightness.dark,
+        ),
+        backgroundColor: const Color(0xFFF3F5F7),
+        elevation: 0,
+        title: Text(
+          "Search",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        centerTitle: true,
+      ),
       backgroundColor: Color(0xFFF3F5F7),
       body: FloatingSearchBar(
         margins: const EdgeInsets.only(left: 13, right: 13, top: 13),

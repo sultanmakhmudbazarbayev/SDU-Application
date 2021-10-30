@@ -47,32 +47,28 @@ class _NavigationBarState extends State<NavigationBar> {
     return SafeArea(
       child: Scaffold(
         drawer: NavigationDrawerWidget(),
-        appBar: AppBar(
-          foregroundColor: const Color(0xFF131315),
-          titleTextStyle: TextStyle(
-            color: const Color(0xFF131315),
-            fontSize: 18,
-          ),
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: const Color(0xFFF3F5F7), // Status bar
-            statusBarIconBrightness: Brightness.dark,
-          ),
-          backgroundColor: const Color(0xFFF3F5F7),
-          elevation: 0,
-          title: Text(
-            appBarTitle,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          actions: <Widget>[],
-          leading: new IconButton(
-            icon: new Icon(Icons.menu),
-            onPressed: () => _scaffoldKey.currentState.openDrawer(),
-          ),
-          centerTitle: true,
-        ),
+        key: _scaffoldKey,
+        // appBar: AppBar(
+        //   foregroundColor: const Color(0xFF131315),
+        //   titleTextStyle: TextStyle(
+        //     color: const Color(0xFF131315),
+        //     fontSize: 18,
+        //   ),
+        //   systemOverlayStyle: SystemUiOverlayStyle(
+        //     statusBarColor: const Color(0xFFF3F5F7), // Status bar
+        //     statusBarIconBrightness: Brightness.dark,
+        //   ),
+        //   backgroundColor: const Color(0xFFF3F5F7),
+        //   elevation: 0,
+        //   title: Text(
+        //     appBarTitle,
+        //     style: TextStyle(
+        //       fontSize: 20,
+        //       fontWeight: FontWeight.w600,
+        //     ),
+        //   ),
+        //   centerTitle: true,
+        // ),
         body: PageView(
           physics: BouncingScrollPhysics(),
           controller: _pageController,

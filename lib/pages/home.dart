@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'home_widgets/NavigationDrawerWidget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -12,19 +15,43 @@ double heihtOfContainer = 120;
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFFF3F5F7),
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            LessonCard(header: 'Linear Algebra'),
-            LessonCard(header: 'Calculus'),
-            LessonCard(header: 'Physics'),
-            LessonCard(header: 'Astronomy'),
-            LessonCard(header: 'Programming'),
-            LessonCard(header: 'Geology'),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        drawer: NavigationDrawerWidget(),
+        appBar: AppBar(
+          foregroundColor: const Color(0xFF131315),
+          titleTextStyle: TextStyle(
+            color: const Color(0xFF131315),
+            fontSize: 18,
+          ),
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: const Color(0xFFF3F5F7), // Status bar
+            statusBarIconBrightness: Brightness.dark,
+          ),
+          backgroundColor: const Color(0xFFF3F5F7),
+          elevation: 0,
+          title: Text(
+            "SDU Academy",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          centerTitle: true,
+        ),
+        backgroundColor: Color(0xFFF3F5F7),
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              LessonCard(header: 'Linear Algebra'),
+              LessonCard(header: 'Calculus'),
+              LessonCard(header: 'Physics'),
+              LessonCard(header: 'Astronomy'),
+              LessonCard(header: 'Programming'),
+              LessonCard(header: 'Geology'),
+            ],
+          ),
         ),
       ),
     );
