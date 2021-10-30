@@ -15,18 +15,28 @@ class UserController {
         let user = {}
         if (id) {
             user = await UserService.findById(id)
-            console.log("id=" + id)
         } else if (email) {
             user = await UserService.findByEmail(email)
-            console.log("email=" + email)
         }
         if(!user) res.json({message: "Enter id or email"})
-        console.log(user.createdAt)
         res.json(user);
     }
 
     async update(req, res) {
         res.send("Ok")
+    }
+
+    async delete(req, res){
+        const {id} = req.params;
+        if(!id){
+            res.status(400).json({message: "Enter id for delete"})
+        }
+        const user = await UserService.deleteById(id)
+        if(user){
+            res.json({user})
+        }else{
+            res.status(500).json()
+        }
     }
 }
 

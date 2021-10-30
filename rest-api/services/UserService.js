@@ -20,6 +20,12 @@ class UserService {
         let user = await User.findOne({ email: email })
         return user;
     }
+
+    async deleteById(id) {
+        let post = await User.findByIdAndDelete(id)
+        console.log(post)
+        return post;
+    }
 }
 
 module.exports = new UserService();
