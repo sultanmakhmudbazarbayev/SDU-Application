@@ -8,10 +8,9 @@ class AuthController {
             var { name, email, password } = req.body;
             const saltRounds = 10;
             password = await bcrypt.hash(password, saltRounds)
-            let user = await UserService.create({ name, email, password })
-            user = { name: user.name, email: user.email };
-            console.log(user)
-            console.log(user._id)
+            await UserService.create({ name, email, password })
+            let user = await UserService.findByEmail(email)
+            user = { id: user._id.toString(), name: user.name, email: user.email };
             const jwtToken = JWTService.generateAccessToken(user)
             res.status(201).json({ user, jwtToken })
         } catch (e) {
@@ -24,13 +23,13 @@ class AuthController {
         try {
             const { email, password } = req.body;
             let user = await UserService.findByEmail(email)
-            user = { name: user.name, email: user.email, password: user.password, createdAt: user.createdAt };
+            user = { id: user._id.toString(), name: user.name, email: user.email, password: user.password, createdAt: user.createdAt, updatedAt: user.updatedAt };
             if (user) {
                 const validPassword = await bcrypt.compare(password, user.password)
                 if (validPassword) {
                     const token = JWTService.generateAccessToken(user)
                     delete user.password;
-                    res.status(200).json({ message: "Valid password", jwt: token , user: user})
+                    res.status(200).json({ message: "Valid password", jwt: token, user: user })
                 } else {
                     res.status(400).json({ error: "Invalid Password" })
                 }

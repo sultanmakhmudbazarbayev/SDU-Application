@@ -6,8 +6,7 @@ class JWTService {
         return jwt.sign(payload, process.env.TOKEN_SECRET, { expiresIn: process.env.EXP_TIME });
     }
 
-    authenticateToken(req, res) {
-        const token = req.body.jwt_token;
+    authenticateToken(token) {
         if (token == null) throw Error("Token is null")
         jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => { return { err, user } })
     }
