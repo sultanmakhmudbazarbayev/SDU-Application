@@ -26,9 +26,7 @@ class _NavigationBarState extends State<NavigationBar> {
 
   List<String> _arrayOfTitles = ['Study', 'Search', 'Bookmarks'];
   String _appBarTitle = 'Study';
-
   PageController _pageController = PageController();
-
   int _selectedItem = 0;
 
   @override

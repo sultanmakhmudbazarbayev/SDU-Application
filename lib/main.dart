@@ -6,6 +6,7 @@ import 'package:project/services/auth_service.dart';
 import 'package:project/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'pages/navigation_bar.dart';
+import 'pages/constants.dart' as AppColors;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: "Flutter Auth Example",
         theme: ThemeData(
+<<<<<<< HEAD
           primarySwatch: Colors.blue,
         ),
         initialRoute: '/',
@@ -31,6 +33,16 @@ class MyApp extends StatelessWidget {
           '/login': (context) => LoginScreen(),
           '/register': (context) => RegisterScreen(),
         },
+=======
+          fontFamily: 'Monsterrat',
+          textSelectionTheme: const TextSelectionThemeData(
+            cursorColor: AppColors.ELEMENTS_COLOR,
+          ),
+        ),
+        debugShowCheckedModeBanner: false,
+        color: AppColors.MAIN_COLOR,
+        home: const NavigationBar(),
+>>>>>>> c8cf9290df46dac0dba6e533dacb2f0a1d5196db
       ),
     );
   }
