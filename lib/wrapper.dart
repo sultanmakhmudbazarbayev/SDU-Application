@@ -12,17 +12,18 @@ class Wrapper extends StatelessWidget {
     final authService = Provider.of<AuthService>(context);
 
     return StreamBuilder<User>(
-      stream: authService.user,
-      builder: (_, AsyncSnapshot<User> snapshot) {
-        if(snapshot.connectionState == ConnectionState.active) {
-          final User user = snapshot.data;
-          return user == null ? LoginScreen() : NavigationBar();
-        } else {
-          return Scaffold(
-            body: Center(child: CircularProgressIndicator(),),
-          );
-        }
-      }
-      );
+        stream: authService.user,
+        builder: (_, AsyncSnapshot<User> snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            final User user = snapshot.data;
+            return user == null ? LoginScreen() : NavigationBar();
+          } else {
+            return Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        });
   }
 }

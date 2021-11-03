@@ -33,7 +33,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
     setState(() {
       widget.appBarTitle = widget.arrayOfTitles[item];
       widget.selectedItem = item;
-
       if (widget.pageController.hasClients) {
         widget.pageController.animateToPage(item,
             duration: Duration(milliseconds: ANIMATION_DURATION_MS),
@@ -44,19 +43,23 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: <BottomNavigationBarItem>[
-        bottomNavigationBarItem('Home', DEFAULT_FONT_SIZE, Icons.home),
-        bottomNavigationBarItem('Search', DEFAULT_FONT_SIZE, Icons.search),
-        bottomNavigationBarItem('Bookmarks', DEFAULT_FONT_SIZE, Icons.bookmark),
-      ],
-      currentIndex: widget.selectedItem,
-      onTap: _onItemTap,
-      iconSize: DEFAULT_ICON_SIZE,
-      selectedFontSize: SELECTED_ITEM_SIZE,
-      unselectedFontSize: SELECTED_ITEM_SIZE,
-      backgroundColor: AppColors.SECONDARY_COLOR,
-      selectedItemColor: AppColors.ELEMENTS_COLOR,
+    return SizedBox(
+      height: 60,
+      child: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          bottomNavigationBarItem('Home', DEFAULT_FONT_SIZE, Icons.home),
+          bottomNavigationBarItem('Search', DEFAULT_FONT_SIZE, Icons.search),
+          bottomNavigationBarItem(
+              'Bookmarks', DEFAULT_FONT_SIZE, Icons.bookmark),
+        ],
+        currentIndex: widget.selectedItem,
+        onTap: _onItemTap,
+        iconSize: DEFAULT_ICON_SIZE,
+        selectedFontSize: SELECTED_ITEM_SIZE,
+        unselectedFontSize: SELECTED_ITEM_SIZE,
+        backgroundColor: AppColors.SECONDARY_COLOR,
+        selectedItemColor: AppColors.ELEMENTS_COLOR,
+      ),
     );
   }
 }
