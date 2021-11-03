@@ -79,7 +79,7 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //drawer: NavigationDrawerWidget(),
+      drawer: NavigationDrawerWidget(),
       appBar: AppBar(
         foregroundColor: const Color(0xFF131315),
         titleTextStyle: TextStyle(

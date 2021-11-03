@@ -14,7 +14,7 @@ class NavigationDrawerWidget extends StatelessWidget {
         child: ListView(
           padding: padding,
           children: <Widget>[
-            const SizedBox(height: 48),
+            const SizedBox(height: 20),
             buildMenuItem(
               text: 'People',
               icon: Icons.people,
@@ -39,7 +39,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               onClicked: () => selectedItem(context, 4),
             ),
             const SizedBox(height: 20),
-            const Divider(color: Colors.white70),
+            const Divider(color: Colors.grey),
             const SizedBox(height: 20),
             buildMenuItem(
               text: 'Plugins',
@@ -62,7 +62,7 @@ class NavigationDrawerWidget extends StatelessWidget {
     IconData icon,
     VoidCallback onClicked,
   }) {
-    const color = Colors.white;
+    const color = Color(0xFF131315);
     const hoverColor = Colors.white70;
 
     return ListTile(
