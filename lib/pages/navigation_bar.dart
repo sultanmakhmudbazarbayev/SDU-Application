@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'home_widgets/navigation_drawer_widget.dart';
 import 'bookmarks.dart';
-import 'home_widgets/NavigationDrawerWidget.dart';
 import 'loading.dart';
 import 'search.dart';
 import 'home.dart';
@@ -48,27 +48,6 @@ class _NavigationBarState extends State<NavigationBar> {
       child: Scaffold(
         drawer: NavigationDrawerWidget(),
         key: _scaffoldKey,
-        // appBar: AppBar(
-        //   foregroundColor: const Color(0xFF131315),
-        //   titleTextStyle: TextStyle(
-        //     color: const Color(0xFF131315),
-        //     fontSize: 18,
-        //   ),
-        //   systemOverlayStyle: SystemUiOverlayStyle(
-        //     statusBarColor: const Color(0xFFF3F5F7), // Status bar
-        //     statusBarIconBrightness: Brightness.dark,
-        //   ),
-        //   backgroundColor: const Color(0xFFF3F5F7),
-        //   elevation: 0,
-        //   title: Text(
-        //     appBarTitle,
-        //     style: TextStyle(
-        //       fontSize: 20,
-        //       fontWeight: FontWeight.w600,
-        //     ),
-        //   ),
-        //   centerTitle: true,
-        // ),
         body: PageView(
           physics: BouncingScrollPhysics(),
           controller: _pageController,
