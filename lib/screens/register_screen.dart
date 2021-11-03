@@ -14,7 +14,8 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final TextEditingController verifyPasswordController = TextEditingController();
+    final TextEditingController verifyPasswordController =
+        TextEditingController();
 
     final authService = Provider.of<AuthService>(context);
 
@@ -65,7 +66,7 @@ class RegisterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(0.0),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
                 child: TextField(
