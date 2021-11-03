@@ -5,7 +5,6 @@ import 'home/navigation_drawer_widget.dart';
 import 'navigation/bottom_navigation_bar.dart';
 
 import 'bookmarks.dart';
-import 'loading.dart';
 import 'search.dart';
 import 'home.dart';
 
