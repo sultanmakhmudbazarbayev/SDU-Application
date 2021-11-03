@@ -43,9 +43,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
-        bottomNavigationBarItem('Home', DEFAULT_FONT_SIZE),
-        bottomNavigationBarItem('Search', DEFAULT_FONT_SIZE),
-        bottomNavigationBarItem('Bookmarks', DEFAULT_FONT_SIZE),
+        bottomNavigationBarItem('Home', DEFAULT_FONT_SIZE, Icons.home),
+        bottomNavigationBarItem('Search', DEFAULT_FONT_SIZE, Icons.search),
+        bottomNavigationBarItem('Bookmarks', DEFAULT_FONT_SIZE, Icons.bookmark),
       ],
       currentIndex: widget.selectedItem,
       onTap: _onItemTap,
