@@ -58,6 +58,9 @@ class NavigationDrawerWidget extends StatelessWidget {
                 icon: Icons.notifications,
                 onClicked: () => selectedItem(context, 6),
               ),
+              SizedBox(
+                height: 50.0,
+              ),
               ElevatedButton(
                   child: Text('Logout'),
                   onPressed: () {
