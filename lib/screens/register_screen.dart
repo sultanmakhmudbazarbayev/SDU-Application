@@ -14,7 +14,7 @@ class RegisterScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
+        title: Text("Register"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
