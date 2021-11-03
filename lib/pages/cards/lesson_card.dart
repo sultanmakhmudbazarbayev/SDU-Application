@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class LessonCard extends StatelessWidget {
@@ -9,7 +11,7 @@ class LessonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 15),
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 20),
       height: 150,
       child: Card(
         shape: RoundedRectangleBorder(
@@ -20,16 +22,29 @@ class LessonCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
+              padding: EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 20,
+                bottom: 20,
+              ),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(left: 22, top: 20),
+                    padding: EdgeInsets.only(
+                      left: 0,
+                      right: 0,
+                      top: 0,
+                      bottom: 10,
+                    ),
                     child: Align(
-                      alignment: Alignment.topLeft,
+                      alignment: Alignment.centerLeft,
                       child: Text(
                         '$header',
                         style: const TextStyle(
@@ -40,8 +55,6 @@ class LessonCard extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(
-                        left: 20, right: 15, top: 10, bottom: 10),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -56,6 +69,7 @@ class LessonCard extends StatelessWidget {
                 ],
               ),
             ),
+            new Spacer(),
           ],
         ),
       ),

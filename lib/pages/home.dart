@@ -46,7 +46,9 @@ class _HomeState extends State<Home> {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: const [
-              LessonCard(header: 'Linear Algebra'),
+              LessonCard(
+                  header: 'Linear Algebra',
+                  description: 'This is linear algebra card'),
               LessonCard(header: 'Calculus'),
               LessonCard(header: 'Physics'),
               LessonCard(header: 'Astronomy'),
