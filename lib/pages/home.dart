@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'home_widgets/NavigationDrawerWidget.dart';
+import 'home_widgets/navigation_drawer_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -10,27 +10,27 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-double heihtOfContainer = 120;
+const double heightOfContainer = 120;
 
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: NavigationDrawerWidget(),
+        drawer: const NavigationDrawerWidget(),
         appBar: AppBar(
           foregroundColor: const Color(0xFF131315),
-          titleTextStyle: TextStyle(
-            color: const Color(0xFF131315),
+          titleTextStyle: const TextStyle(
+            color: Color(0xFF131315),
             fontSize: 18,
           ),
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: const Color(0xFFF3F5F7), // Status bar
+          systemOverlayStyle: const SystemUiOverlayStyle(
+            statusBarColor: Color(0xFFF3F5F7),
             statusBarIconBrightness: Brightness.dark,
           ),
           backgroundColor: const Color(0xFFF3F5F7),
           elevation: 0,
-          title: Text(
+          title: const Text(
             "SDU Academy",
             style: TextStyle(
               fontSize: 20,
@@ -39,11 +39,11 @@ class _HomeState extends State<Home> {
           ),
           centerTitle: true,
         ),
-        backgroundColor: Color(0xFFF3F5F7),
+        backgroundColor: const Color(0xFFF3F5F7),
         body: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
-            children: [
+            children: const [
               LessonCard(header: 'Linear Algebra'),
               LessonCard(header: 'Calculus'),
               LessonCard(header: 'Physics'),
@@ -90,7 +90,7 @@ class LessonCard extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: Text(
                         '$header',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
@@ -98,7 +98,7 @@ class LessonCard extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                         left: 20, right: 15, top: 10, bottom: 10),
                     child: Align(
                       alignment: Alignment.centerLeft,

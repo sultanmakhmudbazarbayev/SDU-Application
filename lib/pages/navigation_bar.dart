@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'home_widgets/navigation_drawer_widget.dart';
 import 'bookmarks.dart';
-import 'home_widgets/NavigationDrawerWidget.dart';
 import 'loading.dart';
 import 'search.dart';
 import 'home.dart';

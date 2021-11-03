@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:project/pages/bookmarks.dart';
-
-import 'PeoplePage.dart';
+import 'people_page.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
-  final padding = EdgeInsets.symmetric(horizontal: 20);
+  final padding = const EdgeInsets.symmetric(horizontal: 20);
+
+  const NavigationDrawerWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Material(
-        color: Color.fromRGBO(50, 75, 205, 1),
+        color: Colors.white,
         child: ListView(
           padding: padding,
           children: <Widget>[
@@ -28,12 +28,6 @@ class NavigationDrawerWidget extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             buildMenuItem(
-              text: 'Workflow',
-              icon: Icons.workspaces_outline,
-              onClicked: () => selectedItem(context, 2),
-            ),
-            const SizedBox(height: 16),
-            buildMenuItem(
               text: 'Updates',
               icon: Icons.update,
               onClicked: () => selectedItem(context, 3),
@@ -45,7 +39,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               onClicked: () => selectedItem(context, 4),
             ),
             const SizedBox(height: 20),
-            Divider(color: Colors.white70),
+            const Divider(color: Colors.white70),
             const SizedBox(height: 20),
             buildMenuItem(
               text: 'Plugins',
@@ -68,8 +62,8 @@ class NavigationDrawerWidget extends StatelessWidget {
     IconData icon,
     VoidCallback onClicked,
   }) {
-    final color = Colors.white;
-    final hoverColor = Colors.white70;
+    const color = Colors.white;
+    const hoverColor = Colors.white70;
 
     return ListTile(
       leading: Icon(
@@ -78,7 +72,7 @@ class NavigationDrawerWidget extends StatelessWidget {
       ),
       title: Text(
         text,
-        style: TextStyle(color: color),
+        style: const TextStyle(color: color),
       ),
       hoverColor: hoverColor,
       onTap: onClicked,

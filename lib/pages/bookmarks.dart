@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project/pages/home_widgets/NavigationDrawerWidget.dart';
+import 'package:project/pages/home_widgets/navigation_drawer_widget.dart';
 
 class Bookmarks extends StatefulWidget {
   const Bookmarks({Key key}) : super(key: key);
