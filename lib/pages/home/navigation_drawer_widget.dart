@@ -65,6 +65,8 @@ class NavigationDrawerWidget extends StatelessWidget {
                   child: Text('Logout'),
                   onPressed: () {
                     authService.signOut();
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => LoginScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
