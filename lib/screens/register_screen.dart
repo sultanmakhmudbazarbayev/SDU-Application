@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:project/pages/navigation_bar.dart';
 import 'package:project/services/auth_service.dart';
 import 'package:provider/provider.dart';
+import 'package:project/pages/constants.dart' as AppColors;
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key key}) : super(key: key);
@@ -12,6 +14,7 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    final TextEditingController verifyPasswordController = TextEditingController();
 
     final authService = Provider.of<AuthService>(context);
 
@@ -29,7 +32,8 @@ class RegisterScreen extends StatelessWidget {
       }
     }
 
-      return MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -37,22 +41,43 @@ class RegisterScreen extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Register"),
+          foregroundColor: AppColors.ELEMENTS_COLOR,
+          titleTextStyle: TextStyle(
+            color: AppColors.ELEMENTS_COLOR,
+            fontSize: 18,
+          ),
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: AppColors.ELEMENTS_COLOR,
+            statusBarIconBrightness: Brightness.light,
+          ),
+          backgroundColor: AppColors.MAIN_COLOR,
+          elevation: 0,
+          title: Text(
+            "Register",
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          centerTitle: true,
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  labelText: "Email",
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+                child: TextField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                    labelText: "Email",
+                  ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
               child: TextField(
                 controller: passwordController,
                 decoration: InputDecoration(
@@ -60,16 +85,33 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
-            ElevatedButton(
-              child: Text('Register'),
-                onPressed: () => _signup(emailController, passwordController)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+              child: TextField(
+                controller: verifyPasswordController,
+                decoration: InputDecoration(
+                  labelText: "Verify Password",
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+              child: ElevatedButton(
+                child: Text(
+                  'Register',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                onPressed: () => _signup(emailController, passwordController),
+                style: ElevatedButton.styleFrom(
+                    fixedSize: const Size(150, 50), primary: Colors.black),
+              ),
+            ),
           ],
         ),
       ),
     );
-
-
-    }
   }
-
+}
