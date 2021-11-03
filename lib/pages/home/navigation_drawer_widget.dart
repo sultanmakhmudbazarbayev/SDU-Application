@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/login_screen.dart';
+import 'package:project/services/auth_service.dart';
+import 'package:provider/provider.dart';
 import 'people_page.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
@@ -8,6 +11,8 @@ class NavigationDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthService>(context);
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Drawer(
@@ -53,6 +58,11 @@ class NavigationDrawerWidget extends StatelessWidget {
                 icon: Icons.notifications,
                 onClicked: () => selectedItem(context, 6),
               ),
+              ElevatedButton(
+                  onPressed: () {
+                    authService.signOut();
+                  },
+                  child: Text('Logout')),
             ],
           ),
         ),
@@ -94,6 +104,12 @@ class NavigationDrawerWidget extends StatelessWidget {
           builder: (context) => PeoplePage(),
         ));
         break;
+
+      // case 7:
+      //   Navigator.of(context).push(MaterialPageRoute(
+      //     builder: (context) => LoginScreen(),
+      //   ));
+      //   break;
     }
   }
 }
