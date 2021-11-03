@@ -24,13 +24,13 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
+            debugShowCheckedModeBanner: false,
             theme: ThemeData(
               fontFamily: 'Monsterrat',
               textSelectionTheme: TextSelectionThemeData(
                 cursorColor: Color(0xFF131315),
               ),
             ),
-            debugShowCheckedModeBanner: false,
             color: Color(0xFFF3F5F7),
             initialRoute: '/',
             routes: {
@@ -40,5 +40,3 @@ class MyApp extends StatelessWidget {
             }));
   }
 }
-
-
