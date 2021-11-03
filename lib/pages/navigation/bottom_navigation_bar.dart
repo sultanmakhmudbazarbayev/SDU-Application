@@ -20,6 +20,12 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
+  final double DEFAULT_FONT_SIZE = 14;
+  final double DEFAULT_ICON_SIZE = 25;
+  final double SELECTED_ITEM_SIZE = 12;
+
+  final int ANIMATION_DURATION_MS = 900;
+
   void _onItemTap(int item) {
     setState(() {
       widget.appBarTitle = widget.arrayOfTitles[item];
@@ -27,7 +33,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
       if (widget.pageController.hasClients) {
         widget.pageController.animateToPage(item,
-            duration: Duration(milliseconds: 900),
+            duration: Duration(milliseconds: ANIMATION_DURATION_MS),
             curve: Curves.easeInOutCubicEmphasized);
       }
     });
@@ -37,15 +43,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
-        bottomNavigationBarItem('Home', 14),
-        bottomNavigationBarItem('Search', 14),
-        bottomNavigationBarItem('Bookmarks', 14),
+        bottomNavigationBarItem('Home', DEFAULT_FONT_SIZE),
+        bottomNavigationBarItem('Search', DEFAULT_FONT_SIZE),
+        bottomNavigationBarItem('Bookmarks', DEFAULT_FONT_SIZE),
       ],
       currentIndex: widget.selectedItem,
       onTap: _onItemTap,
-      iconSize: 25,
-      selectedFontSize: 12,
-      unselectedFontSize: 12,
+      iconSize: DEFAULT_ICON_SIZE,
+      selectedFontSize: SELECTED_ITEM_SIZE,
+      unselectedFontSize: SELECTED_ITEM_SIZE,
       backgroundColor: const Color(0xFFFFFFFF),
       selectedItemColor: Color(0xFF131315),
     );
