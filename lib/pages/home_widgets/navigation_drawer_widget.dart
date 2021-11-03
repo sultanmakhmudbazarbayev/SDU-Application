@@ -9,7 +9,12 @@ class NavigationDrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
       //drawerEnableOpenDragGesture: true,
+=======
+      backgroundColor: Colors.transparent,
+      drawerEnableOpenDragGesture: true,
+>>>>>>> 0738fefce35f61fb4ae205eb726b9c9b206fe9ac
       body: Drawer(
         child: Material(
           color: Colors.white,
