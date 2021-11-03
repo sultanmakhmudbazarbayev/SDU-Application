@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project/pages/home/navigation_drawer_widget.dart';
+import 'constants.dart' as AppColors;
 
 class Bookmarks extends StatefulWidget {
   const Bookmarks({Key key}) : super(key: key);
@@ -26,16 +27,16 @@ class _BookmarksState extends State<Bookmarks> {
     return Scaffold(
       drawer: NavigationDrawerWidget(),
       appBar: AppBar(
-        foregroundColor: const Color(0xFF131315),
+        foregroundColor: AppColors.ELEMENTS_COLOR,
         titleTextStyle: TextStyle(
-          color: const Color(0xFF131315),
+          color: AppColors.ELEMENTS_COLOR,
           fontSize: 18,
         ),
         systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: const Color(0xFFFFFFFF),
+          statusBarColor: AppColors.ELEMENTS_COLOR,
           statusBarIconBrightness: Brightness.light,
         ),
-        backgroundColor: const Color(0xFFF3F5F7),
+        backgroundColor: AppColors.MAIN_COLOR,
         elevation: 0,
         title: Text(
           "Bookmarks",
@@ -46,7 +47,7 @@ class _BookmarksState extends State<Bookmarks> {
         ),
         centerTitle: true,
       ),
-      backgroundColor: Color(0xFFF3F5F7),
+      backgroundColor: AppColors.MAIN_COLOR,
       body: Card(
         elevation: 3,
         margin: EdgeInsets.fromLTRB(16, 13, 16, 0),

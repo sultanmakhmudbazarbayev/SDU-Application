@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'pages/navigation_bar.dart';
+import 'pages/constants.dart' as AppColors;
 
 void main() => runApp(
       MaterialApp(
         theme: ThemeData(
           fontFamily: 'Monsterrat',
-          textSelectionTheme: TextSelectionThemeData(
-            cursorColor: Color(0xFF131315),
+          textSelectionTheme: const TextSelectionThemeData(
+            cursorColor: AppColors.ELEMENTS_COLOR,
           ),
         ),
         debugShowCheckedModeBanner: false,
-        color: Color(0xFFF3F5F7),
-        home: NavigationBar(),
+        color: AppColors.MAIN_COLOR,
+        home: const NavigationBar(),
       ),
     );

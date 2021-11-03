@@ -1,8 +1,11 @@
+// ignore_for_file: non_constant_identifier_names, library_prefixes
+
 import 'package:flutter/material.dart';
 import 'package:project/pages/navigation/bottom_navigaton_item.dart';
+import '../constants.dart' as AppColors;
 
 class BottomNavBar extends StatefulWidget {
-  PageController pageController;
+  final PageController pageController;
   List<String> arrayOfTitles;
   String appBarTitle;
   int selectedItem;
@@ -52,8 +55,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
       iconSize: DEFAULT_ICON_SIZE,
       selectedFontSize: SELECTED_ITEM_SIZE,
       unselectedFontSize: SELECTED_ITEM_SIZE,
-      backgroundColor: const Color(0xFFFFFFFF),
-      selectedItemColor: Color(0xFF131315),
+      backgroundColor: AppColors.SECONDARY_COLOR,
+      selectedItemColor: AppColors.ELEMENTS_COLOR,
     );
   }
 }

@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'home/navigation_drawer_widget.dart';
 import 'cards/lesson_card.dart';
 
+import 'constants.dart' as AppColors;
+
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
 
@@ -11,27 +13,26 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-const double heightOfContainer = 120;
-
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColors.MAIN_COLOR,
         drawer: const NavigationDrawerWidget(),
         appBar: AppBar(
           elevation: 0,
-          foregroundColor: const Color(0xFF131315),
+          foregroundColor: AppColors.ELEMENTS_COLOR,
           titleTextStyle: const TextStyle(
-            color: Color(0xFF131315),
+            color: AppColors.ELEMENTS_COLOR,
             fontSize: 18,
           ),
           systemOverlayStyle: const SystemUiOverlayStyle(
             systemNavigationBarColor: Colors.white,
-            statusBarColor: Color(0xFFF3F5F7),
+            statusBarColor: AppColors.MAIN_COLOR,
             statusBarIconBrightness: Brightness.dark,
           ),
-          backgroundColor: const Color(0xFFF3F5F7),
+          backgroundColor: AppColors.MAIN_COLOR,
           title: const Text(
             "SDU Academy",
             style: TextStyle(
@@ -41,7 +42,6 @@ class _HomeState extends State<Home> {
           ),
           centerTitle: true,
         ),
-        backgroundColor: const Color(0xFFF3F5F7),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
