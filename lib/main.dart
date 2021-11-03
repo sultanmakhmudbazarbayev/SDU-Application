@@ -24,10 +24,14 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
-            title: "Flutter Auth Example",
             theme: ThemeData(
-              primarySwatch: Colors.blue,
+              fontFamily: 'Monsterrat',
+              textSelectionTheme: TextSelectionThemeData(
+                cursorColor: Color(0xFF131315),
+              ),
             ),
+            debugShowCheckedModeBanner: false,
+            color: Color(0xFFF3F5F7),
             initialRoute: '/',
             routes: {
               '/': (context) => Wrapper(),
