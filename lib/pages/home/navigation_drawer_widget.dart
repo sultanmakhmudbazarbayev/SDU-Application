@@ -12,7 +12,7 @@ class NavigationDrawerWidget extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Drawer(
         child: Material(
-          color: Colors.white,
+          //color: Colors.white,
           child: ListView(
             padding: padding,
             children: <Widget>[
