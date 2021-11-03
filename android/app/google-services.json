@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "624800332667",
+    "project_id": "sdu-academy-auth-2ae35",
+    "storage_bucket": "sdu-academy-auth-2ae35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624800332667:android:b1b4fdeef92413b1719bde",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624800332667-m942178pgepk1gq60oogg7sa9k8s3a4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoPUqfQ8hdp8jT7mSeFBo_RqssHEHrDwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624800332667-m942178pgepk1gq60oogg7sa9k8s3a4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
