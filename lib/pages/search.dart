@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-import 'home_widgets/navigation_drawer_widget.dart';
+import 'home/navigation_drawer_widget.dart';
 
 class Search extends StatefulWidget {
   const Search({Key key}) : super(key: key);
