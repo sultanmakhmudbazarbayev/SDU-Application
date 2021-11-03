@@ -8,50 +8,53 @@ class NavigationDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Material(
-        color: Colors.white,
-        child: ListView(
-          padding: padding,
-          children: <Widget>[
-            const SizedBox(height: 20),
-            buildMenuItem(
-              text: 'People',
-              icon: Icons.people,
-              onClicked: () => selectedItem(context, 0),
-            ),
-            const SizedBox(height: 16),
-            buildMenuItem(
-              text: 'Favorites',
-              icon: Icons.favorite_border,
-              onClicked: () => selectedItem(context, 1),
-            ),
-            const SizedBox(height: 16),
-            buildMenuItem(
-              text: 'Updates',
-              icon: Icons.update,
-              onClicked: () => selectedItem(context, 3),
-            ),
-            const SizedBox(height: 16),
-            buildMenuItem(
-              text: 'QA SDU Academy',
-              icon: Icons.question_answer,
-              onClicked: () => selectedItem(context, 4),
-            ),
-            const SizedBox(height: 20),
-            const Divider(color: Colors.grey),
-            const SizedBox(height: 20),
-            buildMenuItem(
-              text: 'Plugins',
-              icon: Icons.account_tree_outlined,
-              onClicked: () => selectedItem(context, 5),
-            ),
-            buildMenuItem(
-              text: 'Notifications',
-              icon: Icons.notifications,
-              onClicked: () => selectedItem(context, 6),
-            ),
-          ],
+    return Scaffold(
+      drawerEnableOpenDragGesture: true,
+      body: Drawer(
+        child: Material(
+          color: Colors.white,
+          child: ListView(
+            padding: padding,
+            children: <Widget>[
+              const SizedBox(height: 25),
+              buildMenuItem(
+                text: 'People',
+                icon: Icons.people,
+                onClicked: () => selectedItem(context, 0),
+              ),
+              const SizedBox(height: 16),
+              buildMenuItem(
+                text: 'Favorites',
+                icon: Icons.favorite_border,
+                onClicked: () => selectedItem(context, 1),
+              ),
+              const SizedBox(height: 16),
+              buildMenuItem(
+                text: 'Updates',
+                icon: Icons.update,
+                onClicked: () => selectedItem(context, 3),
+              ),
+              const SizedBox(height: 16),
+              buildMenuItem(
+                text: 'QA SDU Academy',
+                icon: Icons.question_answer,
+                onClicked: () => selectedItem(context, 4),
+              ),
+              const SizedBox(height: 20),
+              const Divider(color: Colors.grey),
+              const SizedBox(height: 20),
+              buildMenuItem(
+                text: 'Plugins',
+                icon: Icons.account_tree_outlined,
+                onClicked: () => selectedItem(context, 5),
+              ),
+              buildMenuItem(
+                text: 'Notifications',
+                icon: Icons.notifications,
+                onClicked: () => selectedItem(context, 6),
+              ),
+            ],
+          ),
         ),
       ),
     );

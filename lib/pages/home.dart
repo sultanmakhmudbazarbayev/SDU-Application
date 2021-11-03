@@ -19,6 +19,7 @@ class _HomeState extends State<Home> {
         drawer: const NavigationDrawerWidget(),
         appBar: AppBar(
           foregroundColor: const Color(0xFF131315),
+          elevation: 0,
           titleTextStyle: const TextStyle(
             color: Color(0xFF131315),
             fontSize: 18,
@@ -28,7 +29,6 @@ class _HomeState extends State<Home> {
             statusBarIconBrightness: Brightness.dark,
           ),
           backgroundColor: const Color(0xFFF3F5F7),
-          elevation: 0,
           title: const Text(
             "SDU Academy",
             style: TextStyle(
