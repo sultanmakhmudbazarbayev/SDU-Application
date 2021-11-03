@@ -59,10 +59,13 @@ class NavigationDrawerWidget extends StatelessWidget {
                 onClicked: () => selectedItem(context, 6),
               ),
               ElevatedButton(
+                  child: Text('Logout'),
                   onPressed: () {
                     authService.signOut();
                   },
-                  child: Text('Logout')),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                  )),
             ],
           ),
         ),
