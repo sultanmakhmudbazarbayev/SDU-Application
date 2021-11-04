@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/home/profile_page.dart';
 import 'package:project/screens/login_screen.dart';
 import 'package:project/services/auth_service.dart';
 import 'package:provider/provider.dart';
-import 'people_page.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 20);
@@ -22,8 +22,8 @@ class NavigationDrawerWidget extends StatelessWidget {
             children: <Widget>[
               const SizedBox(height: 25),
               buildMenuItem(
-                text: 'People',
-                icon: Icons.people,
+                text: 'Profile',
+                icon: Icons.person,
                 onClicked: () => selectedItem(context, 0),
               ),
               const SizedBox(height: 16),
@@ -103,12 +103,12 @@ class NavigationDrawerWidget extends StatelessWidget {
     switch (i) {
       case 0:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => PeoplePage(),
+          builder: (context) => ProfilePage(),
         ));
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => PeoplePage(),
+          builder: (context) => ProfilePage(),
         ));
         break;
 
