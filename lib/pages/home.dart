@@ -48,12 +48,28 @@ class _HomeState extends State<Home> {
             children: const [
               LessonCard(
                   header: 'Linear Algebra',
-                  description: 'This is linear algebra card'),
-              LessonCard(header: 'Calculus'),
-              LessonCard(header: 'Physics'),
-              LessonCard(header: 'Astronomy'),
-              LessonCard(header: 'Programming'),
-              LessonCard(header: 'Geology'),
+                  description: 'Learn linear algebra',
+                  title: 'Linear Algebra'),
+              LessonCard(
+                  header: 'Calculus',
+                  description: 'Learn calculus',
+                  title: 'Calculus'),
+              LessonCard(
+                  header: 'Physics',
+                  description: 'Learn physics',
+                  title: 'Physics'),
+              LessonCard(
+                  header: 'Astronomy',
+                  description: 'Learn astronomy',
+                  title: 'Astronomy'),
+              LessonCard(
+                  header: 'Programming',
+                  description: 'Learn programming',
+                  title: 'Programming'),
+              LessonCard(
+                  header: 'Geology',
+                  description: 'Learn geology',
+                  title: 'Geology'),
             ],
           ),
         ),

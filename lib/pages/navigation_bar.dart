@@ -24,20 +24,20 @@ class _NavigationBarState extends State<NavigationBar> {
     Bookmarks(),
   ];
 
-  List<String> _arrayOfTitles = ['Study', 'Search', 'Bookmarks'];
+  final List<String> _arrayOfTitles = ['Study', 'Search', 'Bookmarks'];
   String _appBarTitle = 'Study';
 
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   int _selectedItem = 0;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: NavigationDrawerWidget(),
+        drawer: const NavigationDrawerWidget(),
         key: _scaffoldKey,
         body: PageView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           controller: _pageController,
           children: _screens,
           onPageChanged: (page) {
