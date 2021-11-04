@@ -1,4 +1,5 @@
 const UserService = require("../services/UserService.js")
+const JWTService = require("../services/JwtService.js")
 
 class UserController {
     async getAll(req, res) {
@@ -17,8 +18,10 @@ class UserController {
             user = await UserService.findById(id)
         } else if (email) {
             user = await UserService.findByEmail(email)
+        }else{
+            res.json({ message: "Enter id or email" })
         }
-        if(!user) res.json({message: "Enter id or email"})
+        if (!user) return res.sendStatus(400)
         res.json(user);
     }
 
@@ -26,16 +29,17 @@ class UserController {
         res.send("Ok")
     }
 
-    async delete(req, res){
-        const {id} = req.params;
-        if(!id){
-            res.status(400).json({message: "Enter id for delete"})
+    async delete(req, res, user) {
+        const { id } = req.params;
+        if (!id) {
+            return res.sendStatus(400)
         }
-        const user = await UserService.deleteById(id)
-        if(user){
-            res.json({user})
-        }else{
-            res.status(500).json()
+        
+        const deletedUser = await UserService.deleteById(id)
+        if (deletedUser) {
+            res.json({ deletedUser })
+        } else {
+            res.sendStatus(500)
         }
     }
 }
