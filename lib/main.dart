@@ -18,23 +18,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        Provider<AuthService>(
-          create: (_) => AuthService(),
-        ),
-      ],
-      child: MaterialApp(
-        title: "Flutter Auth Example",
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        initialRoute: '/',
-        routes: {
-          '/': (context) => Wrapper(),
-          '/login': (context) => LoginScreen(),
-          '/register': (context) => RegisterScreen(),
-        },
-      ),
-    );
+        providers: [
+          Provider<AuthService>(
+            create: (_) => AuthService(),
+          ),
+        ],
+        child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              fontFamily: 'Monsterrat',
+              textSelectionTheme: TextSelectionThemeData(
+                cursorColor: Color(0xFF131315),
+              ),
+            ),
+            color: Color(0xFFF3F5F7),
+            initialRoute: '/',
+            routes: {
+              '/': (context) => Wrapper(),
+              '/login': (context) => LoginScreen(),
+              '/register': (context) => RegisterScreen(),
+            }));
   }
 }
