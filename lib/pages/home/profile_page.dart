@@ -118,10 +118,10 @@ class ProfilePage extends StatelessWidget {
                   border: Border.all(color: Colors.white, width: 5),
                   shape: BoxShape.circle,
                   color: Colors.white,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage('assets/images/profile.png'),
-                  ),
+                  // image: DecorationImage(
+                  //   fit: BoxFit.cover,
+                  //   // image: AssetImage('assets/images/profile.png'),
+                  // ),
                 ),
               ),
             ],
