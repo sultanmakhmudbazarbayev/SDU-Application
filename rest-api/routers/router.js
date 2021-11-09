@@ -8,7 +8,7 @@ const userRouter = require('./userRouter.js')
 //Middlewares
 const authenticateMiddleware = require('../middlewares/AuthenticateMiddleware.js')
 
-// router.use('/users', authenticateMiddleware)
+router.use('/users', authenticateMiddleware)
 
 router.use('/auth', authRouter)
 router.use('/users', userRouter)

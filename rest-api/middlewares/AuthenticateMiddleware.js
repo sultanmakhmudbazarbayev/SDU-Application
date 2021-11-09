@@ -1,20 +1,18 @@
 const JWTService = require('../services/JwtService.js');
+const UserService = require('../services/UserService.js');
 
-module.exports = function validate(req, res, next) {
+module.exports = async function validate(req, res, next) {
     try {
         const { jwt } = req.body;
-        if (!jwt) {
-            return res.sendStatus(400)
+        if (jwt) {
+            const { err, user } = JWTService.authenticateToken(jwt)
+            if (err) {
+                return res.status(400).json(err)
+            }
+            req.user = await UserService.findById(user.id)
         }
-        const { err, user } = JWTService.authenticateToken(jwt)
-        if (err) {
-            console.log("We have error")
-            console.log(err)
-            return res.status(400).json(err)
-        }
-        next(req, res, user)
-        // console.log(user)
-        // return res.sendStatus(200);
+        req.isAuthenticated = req.user ? true : false;
+        next()
 
     } catch (e) {
         console.log(e)

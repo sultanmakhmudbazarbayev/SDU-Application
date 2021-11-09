@@ -23,7 +23,7 @@ class AuthController {
         try {
             const { email, password } = req.body;
             let user = await UserService.findByEmail(email)
-            user = { id: user._id.toString(), name: user.name, email: user.email, password: user.password, createdAt: user.createdAt, updatedAt: user.updatedAt };
+            user = { _id: user._id.toString(), name: user.name, email: user.email, password: user.password, createdAt: user.createdAt, updatedAt: user.updatedAt };
             if (user) {
                 const validPassword = await bcrypt.compare(password, user.password)
                 if (validPassword) {

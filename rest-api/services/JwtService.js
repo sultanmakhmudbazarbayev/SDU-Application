@@ -3,7 +3,10 @@ const jwt = require('jsonwebtoken')
 
 class JWTService {
     generateAccessToken(payload) {
-        return jwt.sign(payload, process.env.TOKEN_SECRET, { expiresIn: process.env.EXP_TIME+"" });
+        payload.iat = +(Math.floor(Date.now() / 1000) + process.env.EXP_TIME);
+        console.log(payload.iat);
+        console.log(typeof payload.iat);
+        return jwt.sign(payload, process.env.TOKEN_SECRET);
     }
 
     authenticateToken(token) {

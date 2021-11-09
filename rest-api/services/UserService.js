@@ -1,12 +1,12 @@
 const User = require('../models/User.js')
 
 class UserService {
-    async create(user){
+    async create(user) {
         user = await User.create(user)
-        return user; 
+        return user;
     }
 
-    async find(){
+    async find() {
         let users = await User.find()
         return users;
     }
@@ -22,9 +22,13 @@ class UserService {
     }
 
     async deleteById(id) {
-        let post = await User.findByIdAndDelete(id)
-        console.log(post)
-        return post;
+        let deletedUser = await User.findByIdAndDelete(id)
+        return deletedUser;
+    }
+
+    async update(newData) {
+        let updatedUser = await User.findByIdAndUpdate(newData._id, newData, { new: true })
+        return updatedUser;
     }
 }
 
