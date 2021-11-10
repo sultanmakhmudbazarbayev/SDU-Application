@@ -20,13 +20,15 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
 
   int _itemCount = 0;
-
+  List<String> titles = [];
+  List<String> authors = [];
   var jsonResponse;
+  var map = {};
 
   String _Query;
 
   Future<void> getQuotes(query) async {
-    String url = "http://10.0.2.2:5000/?title=$query";
+    String url = "http://10.0.2.2:5000/?query=$query";
     http.Response response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       setState(() {
@@ -35,7 +37,17 @@ class _SearchState extends State<Search> {
       });
 //      jsonResponse[0]["author"]; = author name
 //      jsonResponse[0]["quote"]; = quotes text
+      for(int i = 0; i< jsonResponse.length; i++)
+      {
+        titles.add(jsonResponse[i]['author']);
+      }
+      for(int i = 0; i< jsonResponse.length; i++)
+      {
+        authors.add(jsonResponse[i]['quote']);
+      }
       print("Number of quotes found : $_itemCount.");
+      print(titles);
+      print(authors);
     } else {
       print("Request failed with status: ${response.statusCode}.");
     }
@@ -140,6 +152,9 @@ class _SearchState extends State<Search> {
           body: FloatingSearchBarScrollNotifier(
             child: SearchResultsListView(
               searchTerm: selectedTerm,
+              itemCount: _itemCount,
+              titles: titles,
+              authors: authors,
               key: null,
             ),
           ),
@@ -164,14 +179,24 @@ class _SearchState extends State<Search> {
             FloatingSearchBarAction.searchToClear(),
           ],
           onQueryChanged: (query) {
+            _Query = query;
+            getQuotes(_Query);
+            print(query);
             setState(() {
+              _itemCount = 0;
               filteredSearchHistory = filterSearchTerms(filter: query);
+
             });
           },
           onSubmitted: (query) {
+            _Query = query;
+            print(query);
+
             setState(() {
+              _itemCount = 0;
               addSearchTerm(query);
               selectedTerm = query;
+
             });
             controller.close();
           },
@@ -252,17 +277,28 @@ class _SearchState extends State<Search> {
   }
 }
 
-class SearchResultsListView extends StatelessWidget {
+class SearchResultsListView extends StatefulWidget {
   final String searchTerm;
+  final int itemCount;
+  final List<String> titles;
+  final List<String> authors;
 
-  const SearchResultsListView({
+  SearchResultsListView({
     Key key,
     this.searchTerm,
+    this.itemCount,
+    this.titles,
+    this.authors
   }) : super(key: key);
 
   @override
+  State<SearchResultsListView> createState() => _SearchResultsListViewState();
+}
+
+class _SearchResultsListViewState extends State<SearchResultsListView> {
+  @override
   Widget build(BuildContext context) {
-    if (searchTerm == null) {
+    if (widget.searchTerm == null) {
       return Center(
           child: Padding(
         padding: EdgeInsets.fromLTRB(20.0, 80.0, 30.0, 0.0),
@@ -287,15 +323,47 @@ class SearchResultsListView extends StatelessWidget {
 
     final fsb = FloatingSearchBar.of(context);
 
-    return ListView(
-      padding: EdgeInsets.only(top: fsb.height + fsb.margins.vertical),
-      children: List.generate(
-        10,
-        (index) => ListTile(
-          title: Text('$searchTerm search result'),
-          subtitle: Text(index.toString()),
-        ),
+    return Center(
+      child: SingleChildScrollView(
+      child: Column(
+      children: <Widget>[
+      Container(
+      height: widget.itemCount == 0 ? 50 : 350,
+      child: widget.itemCount == 0
+          ? Text("Loading...")
+          : ListView.builder(
+        itemBuilder: (context, index) {
+          return Container(
+            decoration: BoxDecoration(
+                color: Colors.black12,
+                borderRadius:
+                BorderRadius.all(Radius.circular(10))),
+            padding:
+            EdgeInsets.only(left: 20, right: 20, top: 10),
+            margin:
+            EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  widget.titles[index], //quote
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+                Text(
+                  widget.authors[index], //author name
+                  style: TextStyle(
+                      color: Colors.white, fontSize: 18),
+                ),
+              ],
+            ),
+          );
+        },
+        itemCount: widget.itemCount,
       ),
+    ),
+    ],
+    )
+    )
     );
   }
 }
