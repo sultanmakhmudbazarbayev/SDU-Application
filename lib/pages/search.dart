@@ -5,6 +5,11 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'home/navigation_drawer_widget.dart';
 import 'constants.dart' as AppColors;
 
+import 'dart:collection';
+
+import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
+
 class Search extends StatefulWidget {
   const Search({Key key}) : super(key: key);
 
@@ -13,6 +18,29 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
+
+  int _itemCount = 0;
+
+  var jsonResponse;
+
+  String _Query;
+
+  Future<void> getQuotes(query) async {
+    String url = "http://10.0.2.2:5000/?title=$query";
+    http.Response response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      setState(() {
+        jsonResponse = convert.jsonDecode(response.body);
+        _itemCount = jsonResponse.length;
+      });
+//      jsonResponse[0]["author"]; = author name
+//      jsonResponse[0]["quote"]; = quotes text
+      print("Number of quotes found : $_itemCount.");
+    } else {
+      print("Request failed with status: ${response.statusCode}.");
+    }
+  }
+
   static const historyLength = 5;
 
   List<String> _searchHistory = [
