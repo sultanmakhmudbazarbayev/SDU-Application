@@ -19,7 +19,7 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search> {
 
-  int _itemCount = 0;
+  var _itemCount = 0;
   List<String> titles = [];
   List<String> authors = [];
   var jsonResponse;
