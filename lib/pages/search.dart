@@ -28,6 +28,8 @@ class _SearchState extends State<Search> {
   String _Query;
 
   Future<void> getQuotes(query) async {
+    titles = [];
+    authors = [];
     String url = "http://10.0.2.2:5000/?query=$query";
     http.Response response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
@@ -47,7 +49,6 @@ class _SearchState extends State<Search> {
       }
       print("Number of quotes found : $_itemCount.");
       print(titles);
-      print(authors);
     } else {
       print("Request failed with status: ${response.statusCode}.");
     }
@@ -180,23 +181,20 @@ class _SearchState extends State<Search> {
           ],
           onQueryChanged: (query) {
             _Query = query;
-            getQuotes(_Query);
+            // getQuotes(_Query);
             print(query);
             setState(() {
-              _itemCount = 0;
               filteredSearchHistory = filterSearchTerms(filter: query);
-
             });
           },
           onSubmitted: (query) {
             _Query = query;
             print(query);
-
+            getQuotes(_Query);
             setState(() {
               _itemCount = 0;
               addSearchTerm(query);
               selectedTerm = query;
-
             });
             controller.close();
           },
@@ -228,6 +226,7 @@ class _SearchState extends State<Search> {
                         leading: const Icon(Icons.search),
                         onTap: () {
                           setState(() {
+                            // getQuotes(_Query);
                             addSearchTerm(controller.query);
                             selectedTerm = controller.query;
                           });
@@ -256,6 +255,7 @@ class _SearchState extends State<Search> {
                                 ),
                                 onTap: () {
                                   setState(() {
+                                    // getQuotes(_Query);
                                     putSearchTermFirst(term);
                                     selectedTerm = term;
                                   });
