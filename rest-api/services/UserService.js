@@ -30,6 +30,14 @@ class UserService {
         let updatedUser = await User.findByIdAndUpdate(newData._id, newData, { new: true })
         return updatedUser;
     }
+
+    hasRole(user = null, role = '') {
+        if (user && role) {
+            return user.roles.includes(role)
+        } else {
+            return false;
+        }
+    }
 }
 
 module.exports = new UserService();

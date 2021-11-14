@@ -21,7 +21,7 @@ class UserController {
         } else {
             res.json({ message: "Enter id or email" })
         }
-        if (!user) return res.status(200).json({message:"User not exists"})
+        if (!user) return res.status(200).json({ message: "User not exists" })
         res.json(user);
     }
 
@@ -49,6 +49,25 @@ class UserController {
         const deletedUser = await UserService.deleteById(id)
         if (deletedUser) {
             res.json({ deletedUser })
+        } else {
+            res.sendStatus(500)
+        }
+    }
+
+    async addRole(req, res) {
+        const { user_id, role } = req.body;
+        if (!user_id || !role) {
+            return res.sendStatus(400)
+        }
+        else if (!UserService.hasRole(req.user, 'admin')) {
+            return res.sendStatus(403)
+        }
+        const user = await UserService.findById(user_id)
+        user.roles.push(role)
+
+        const updatedUser = await UserService.update(user)
+        if (updatedUser) {
+            res.json({ updatedUser })
         } else {
             res.sendStatus(500)
         }
