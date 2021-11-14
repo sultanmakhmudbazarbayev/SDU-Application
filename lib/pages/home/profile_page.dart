@@ -1,3 +1,62 @@
+// import 'dart:io';
+
+// import 'package:flutter/material.dart';
+// import 'package:image_picker/image_picker.dart';
+
+// class ProfilePage extends StatelessWidget {
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+
+//       ),
+//       home: MyHomePage(title: 'Profile Page'),
+//     );
+//   }
+// }
+
+// class MyHomePage extends StatefulWidget {
+//   MyHomePage({Key key, this.title}) : super(key: key);
+
+//   final String title;
+
+//   @override
+//   _MyHomePageState createState() => _MyHomePageState();
+// }
+
+// class _MyHomePageState extends State<MyHomePage> {
+//   File _image;
+
+//   Future getImage() async {
+//     final image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+//     setState(() {
+//       _image = image as File;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(widget.title),
+//       ),
+//       body: Center(
+//         child:
+//             _image == null ? Text("image is not loaded") : Image.file(_image),
+//       ),
+
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: getImage,
+//         tooltip: 'Increment',
+//         child: Icon(Icons.camera_alt),
+//       ), // This trailing comma makes auto-formatting nicer for build methods.
+//     );
+//   }
+// }
+
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -118,10 +177,10 @@ class ProfilePage extends StatelessWidget {
                   border: Border.all(color: Colors.white, width: 5),
                   shape: BoxShape.circle,
                   color: Colors.white,
-                  // image: DecorationImage(
-                  //   fit: BoxFit.cover,
-                  //   // image: AssetImage('assets/images/profile.png'),
-                  // ),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/images/profile.png'),
+                  ),
                 ),
               ),
             ],
