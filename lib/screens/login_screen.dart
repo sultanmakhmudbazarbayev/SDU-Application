@@ -1,5 +1,6 @@
+// ignore_for_file: library_prefixes
+
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -25,7 +26,7 @@ class LoginScreen extends StatelessWidget {
         await authService.signInWithEmailAndPassword(email, password);
 
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => NavigationBar()));
+            MaterialPageRoute(builder: (context) => const NavigationBar()));
       } on FirebaseAuthException catch (error) {
         Fluttertoast.showToast(
             msg: error.message, gravity: ToastGravity.CENTER);
@@ -41,17 +42,17 @@ class LoginScreen extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           foregroundColor: AppColors.ELEMENTS_COLOR,
-          titleTextStyle: TextStyle(
+          titleTextStyle: const TextStyle(
             color: AppColors.ELEMENTS_COLOR,
             fontSize: 18,
           ),
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: AppColors.ELEMENTS_COLOR,
             statusBarIconBrightness: Brightness.light,
           ),
           backgroundColor: AppColors.MAIN_COLOR,
           elevation: 0,
-          title: Text(
+          title: const Text(
             "SDU Academy",
             style: TextStyle(
               fontSize: 30,
@@ -67,7 +68,7 @@ class LoginScreen extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(50.0, 0, 50.0, 0),
               child: TextField(
                 controller: emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Email",
                 ),
               ),
@@ -76,7 +77,7 @@ class LoginScreen extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(50.0, 0, 50.0, 0),
               child: TextField(
                 controller: passwordController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Password",
                 ),
               ),
@@ -84,7 +85,7 @@ class LoginScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(50.0, 40.0, 50.0, 0),
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   'Login',
                   style: TextStyle(
                     fontSize: 20,
@@ -96,7 +97,7 @@ class LoginScreen extends StatelessWidget {
                     fixedSize: const Size(150, 50), primary: Colors.black),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             TextButton(
@@ -105,7 +106,7 @@ class LoginScreen extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                     fixedSize: const Size(200, 50), primary: Colors.white),
-                child: Text(
+                child: const Text(
                   'Don\'t have an accont?',
                   style: TextStyle(color: Colors.black, fontSize: 18.0),
                 )),

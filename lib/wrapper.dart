@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 import 'models/user_model.dart';
 
 class Wrapper extends StatelessWidget {
+  const Wrapper({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<AuthService>(context);
@@ -16,9 +18,9 @@ class Wrapper extends StatelessWidget {
         builder: (_, AsyncSnapshot<User> snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             final User user = snapshot.data;
-            return user == null ? LoginScreen() : NavigationBar();
+            return user == null ? const LoginScreen() : const NavigationBar();
           } else {
-            return Scaffold(
+            return const Scaffold(
               body: Center(
                 child: CircularProgressIndicator(),
               ),

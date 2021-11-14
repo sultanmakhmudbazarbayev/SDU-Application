@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, library_prefixes
+// ignore_for_file: library_prefixes, must_be_immutable, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:project/pages/navigation/bottom_navigaton_item.dart';

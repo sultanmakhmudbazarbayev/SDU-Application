@@ -19,20 +19,20 @@ class AuthService {
     String email,
     String password,
   ) async {
-    final Credential = await _firebaseAuth.signInWithEmailAndPassword(
+    final credential = await _firebaseAuth.signInWithEmailAndPassword(
         email: email, password: password);
 
-    return _userFromFirebase(Credential.user);
+    return _userFromFirebase(credential.user);
   }
 
   Future<User> createUserWithEmailAndPassword(
     String email,
     String password,
   ) async {
-    final Credential = await _firebaseAuth.createUserWithEmailAndPassword(
+    final credential = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
 
-    return _userFromFirebase(Credential.user);
+    return _userFromFirebase(credential.user);
   }
 
   Future<void> signOut() async {

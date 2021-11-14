@@ -57,15 +57,15 @@ class NavigationDrawerWidget extends StatelessWidget {
                 icon: Icons.notifications,
                 onClicked: () => selectedItem(context, 6),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50.0,
               ),
               ElevatedButton(
-                  child: Text('Logout'),
+                  child: const Text('Logout'),
                   onPressed: () {
                     authService.signOut();
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const LoginScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
@@ -103,12 +103,12 @@ class NavigationDrawerWidget extends StatelessWidget {
     switch (i) {
       case 0:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => ProfilePage(),
+          builder: (context) => const ProfilePage(),
         ));
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => ProfilePage(),
+          builder: (context) => const ProfilePage(),
         ));
         break;
 

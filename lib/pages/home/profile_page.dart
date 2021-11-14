@@ -60,6 +60,8 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key key}) : super(key: key);
+
   Widget textfield({@required hintText}) {
     return Material(
       elevation: 4,
@@ -70,7 +72,7 @@ class ProfilePage extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: TextStyle(
+            hintStyle: const TextStyle(
               letterSpacing: 2,
               color: Colors.black54,
               fontWeight: FontWeight.bold,
@@ -89,7 +91,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Color(0xff555555),
+        backgroundColor: const Color(0xff555555),
         // leading: IconButton(
         //   icon: Icon(
         //     Icons.arrow_back,
@@ -107,7 +109,7 @@ class ProfilePage extends StatelessWidget {
               Container(
                 height: 450,
                 width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -123,7 +125,7 @@ class ProfilePage extends StatelessWidget {
                     textfield(
                       hintText: 'Confirm password',
                     ),
-                    Container(
+                    SizedBox(
                       height: 55,
                       width: double.infinity,
                       child: ElevatedButton(
@@ -131,7 +133,7 @@ class ProfilePage extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           primary: Colors.black,
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "Update",
                             style: TextStyle(
@@ -148,7 +150,7 @@ class ProfilePage extends StatelessWidget {
             ],
           ),
           CustomPaint(
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
             ),
@@ -157,7 +159,7 @@ class ProfilePage extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(20),
                 child: Text(
                   "Profile",
@@ -170,14 +172,14 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 width: MediaQuery.of(context).size.width / 2,
                 height: MediaQuery.of(context).size.width / 2,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.white, width: 5),
                   shape: BoxShape.circle,
                   color: Colors.white,
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage('assets/images/profile.png'),
                   ),
@@ -186,11 +188,11 @@ class ProfilePage extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(bottom: 20, left: 184),
+            padding: const EdgeInsets.only(bottom: 20, left: 184),
             child: CircleAvatar(
               backgroundColor: Colors.black54,
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.edit,
                   color: Colors.white,
                 ),
@@ -207,7 +209,7 @@ class ProfilePage extends StatelessWidget {
 class HeaderCurvedContainer extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..color = Color(0xff555555);
+    Paint paint = Paint()..color = const Color(0xff555555);
     Path path = Path()
       ..relativeLineTo(0, 150)
       ..quadraticBezierTo(size.width / 2, 225, size.width, 150)

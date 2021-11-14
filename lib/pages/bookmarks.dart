@@ -1,3 +1,5 @@
+// ignore_for_file: library_prefixes
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project/pages/home/navigation_drawer_widget.dart';
@@ -23,22 +25,23 @@ class _BookmarksState extends State<Bookmarks> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavigationDrawerWidget(),
+      drawer: const NavigationDrawerWidget(),
       appBar: AppBar(
         foregroundColor: AppColors.ELEMENTS_COLOR,
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           color: AppColors.ELEMENTS_COLOR,
           fontSize: 18,
         ),
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: AppColors.ELEMENTS_COLOR,
           statusBarIconBrightness: Brightness.light,
         ),
         backgroundColor: AppColors.MAIN_COLOR,
         elevation: 0,
-        title: Text(
+        title: const Text(
           "Bookmarks",
           style: TextStyle(
             fontSize: 20,
@@ -50,7 +53,7 @@ class _BookmarksState extends State<Bookmarks> {
       backgroundColor: AppColors.MAIN_COLOR,
       body: Card(
         elevation: 3,
-        margin: EdgeInsets.fromLTRB(16, 13, 16, 0),
+        margin: const EdgeInsets.fromLTRB(16, 13, 16, 0),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
@@ -63,7 +66,7 @@ class _BookmarksState extends State<Bookmarks> {
                   color: Colors.grey[600],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 6.0,
               ),
               Text(
@@ -73,12 +76,13 @@ class _BookmarksState extends State<Bookmarks> {
                   color: Colors.grey[800],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8.0,
               ),
               TextButton.icon(
-                label: Text('Delete course'),
-                icon: Icon(Icons.delete),
+                label: const Text('Delete course'),
+                icon: const Icon(Icons.delete),
+                onPressed: () {},
               ),
             ],
           ),

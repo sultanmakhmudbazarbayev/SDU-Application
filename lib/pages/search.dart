@@ -1,11 +1,11 @@
+// ignore_for_file: library_prefixes, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'home/navigation_drawer_widget.dart';
 import 'constants.dart' as AppColors;
-
-import 'dart:collection';
 
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
@@ -18,14 +18,13 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-
   var _itemCount = 0;
   List<String> titles = [];
   List<String> authors = [];
-  var jsonResponse;
+  var jsonResponse = [];
   var map = {};
 
-  String _Query;
+  String query;
 
   Future<void> getQuotes(query) async {
     titles = [];
@@ -39,12 +38,10 @@ class _SearchState extends State<Search> {
       });
 //      jsonResponse[0]["author"]; = author name
 //      jsonResponse[0]["quote"]; = quotes text
-      for(int i = 0; i< jsonResponse.length; i++)
-      {
+      for (int i = 0; i < jsonResponse.length; i++) {
         titles.add(jsonResponse[i]['author']);
       }
-      for(int i = 0; i< jsonResponse.length; i++)
-      {
+      for (int i = 0; i < jsonResponse.length; i++) {
         authors.add(jsonResponse[i]['quote']);
       }
       print("Number of quotes found : $_itemCount.");
@@ -56,6 +53,7 @@ class _SearchState extends State<Search> {
 
   static const historyLength = 5;
 
+  // ignore: prefer_final_fields
   List<String> _searchHistory = [
     'math',
     'physics',
@@ -123,20 +121,20 @@ class _SearchState extends State<Search> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.MAIN_COLOR,
-        drawer: NavigationDrawerWidget(),
+        drawer: const NavigationDrawerWidget(),
         appBar: AppBar(
           foregroundColor: const Color(0xFF131315),
-          titleTextStyle: TextStyle(
-            color: const Color(0xFF131315),
+          titleTextStyle: const TextStyle(
+            color: Color(0xFF131315),
             fontSize: 18,
           ),
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: const Color(0xFFF3F5F7), // Status bar
+          systemOverlayStyle: const SystemUiOverlayStyle(
+            statusBarColor: Color(0xFFF3F5F7), // Status bar
             statusBarIconBrightness: Brightness.dark,
           ),
           backgroundColor: const Color(0xFFF3F5F7),
           elevation: 0,
-          title: Text(
+          title: const Text(
             "Search",
             style: TextStyle(
               fontSize: 20,
@@ -160,10 +158,10 @@ class _SearchState extends State<Search> {
             ),
           ),
           transition: CircularFloatingSearchBarTransition(),
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           title: Text(
             selectedTerm ?? 'Search...',
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w400,
               color: Colors.grey,
               fontSize: 17,
@@ -171,7 +169,7 @@ class _SearchState extends State<Search> {
           ),
           borderRadius: BorderRadius.circular(10),
           hint: 'Search and find out...',
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             fontWeight: FontWeight.w400,
             color: Colors.grey,
             fontSize: 17,
@@ -180,17 +178,17 @@ class _SearchState extends State<Search> {
             FloatingSearchBarAction.searchToClear(),
           ],
           onQueryChanged: (query) {
-            _Query = query;
-            // getQuotes(_Query);
+            query = query;
+            // getQuotes(query);
             print(query);
             setState(() {
               filteredSearchHistory = filterSearchTerms(filter: query);
             });
           },
           onSubmitted: (query) {
-            _Query = query;
+            query = query;
             print(query);
-            getQuotes(_Query);
+            getQuotes(query);
             setState(() {
               _itemCount = 0;
               addSearchTerm(query);
@@ -202,7 +200,7 @@ class _SearchState extends State<Search> {
             return ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Material(
-                animationDuration: Duration(milliseconds: 900),
+                animationDuration: const Duration(milliseconds: 900),
                 color: Colors.white,
                 elevation: 2,
                 child: Builder(
@@ -226,7 +224,7 @@ class _SearchState extends State<Search> {
                         leading: const Icon(Icons.search),
                         onTap: () {
                           setState(() {
-                            // getQuotes(_Query);
+                            // getQuotes(query);
                             addSearchTerm(controller.query);
                             selectedTerm = controller.query;
                           });
@@ -255,7 +253,7 @@ class _SearchState extends State<Search> {
                                 ),
                                 onTap: () {
                                   setState(() {
-                                    // getQuotes(_Query);
+                                    // getQuotes(query);
                                     putSearchTermFirst(term);
                                     selectedTerm = term;
                                   });
@@ -283,13 +281,9 @@ class SearchResultsListView extends StatefulWidget {
   final List<String> titles;
   final List<String> authors;
 
-  SearchResultsListView({
-    Key key,
-    this.searchTerm,
-    this.itemCount,
-    this.titles,
-    this.authors
-  }) : super(key: key);
+  const SearchResultsListView(
+      {Key key, this.searchTerm, this.itemCount, this.titles, this.authors})
+      : super(key: key);
 
   @override
   State<SearchResultsListView> createState() => _SearchResultsListViewState();
@@ -301,12 +295,12 @@ class _SearchResultsListViewState extends State<SearchResultsListView> {
     if (widget.searchTerm == null) {
       return Center(
           child: Padding(
-        padding: EdgeInsets.fromLTRB(20.0, 80.0, 30.0, 0.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 80.0, 30.0, 0.0),
         child: ListView(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: const <Widget>[
                 Text(
                   "Browse courses",
                   style: TextStyle(
@@ -321,49 +315,48 @@ class _SearchResultsListViewState extends State<SearchResultsListView> {
       ));
     }
 
-    final fsb = FloatingSearchBar.of(context);
+    //TODO Uncomment when will used
+    // final fsb = FloatingSearchBar.of(context);
 
     return Center(
-      child: SingleChildScrollView(
-      child: Column(
-      children: <Widget>[
-      Container(
-      height: widget.itemCount == 0 ? 50 : 350,
-      child: widget.itemCount == 0
-          ? Text("Loading...")
-          : ListView.builder(
-        itemBuilder: (context, index) {
-          return Container(
-            decoration: BoxDecoration(
-                color: Colors.black12,
-                borderRadius:
-                BorderRadius.all(Radius.circular(10))),
-            padding:
-            EdgeInsets.only(left: 20, right: 20, top: 10),
-            margin:
-            EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  widget.titles[index], //quote
-                  style: TextStyle(color: Colors.white, fontSize: 22),
+      children: <Widget>[
+        SizedBox(
+          height: widget.itemCount == 0 ? 50 : 350,
+          child: widget.itemCount == 0
+              ? const Text("Loading...")
+              : ListView.builder(
+                  itemBuilder: (context, index) {
+                    return Container(
+                      decoration: const BoxDecoration(
+                          color: Colors.black12,
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      padding:
+                          const EdgeInsets.only(left: 20, right: 20, top: 10),
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            widget.titles[index], //quote
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 22),
+                          ),
+                          Text(
+                            widget.authors[index], //author name
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 18),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: widget.itemCount,
                 ),
-                Text(
-                  widget.authors[index], //author name
-                  style: TextStyle(
-                      color: Colors.white, fontSize: 18),
-                ),
-              ],
-            ),
-          );
-        },
-        itemCount: widget.itemCount,
-      ),
-    ),
-    ],
-    )
-    )
-    );
+        ),
+      ],
+    )));
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: library_prefixes
+
 import 'package:flutter/material.dart';
 import '../constants.dart' as AppColors;
 
@@ -12,8 +14,8 @@ class LessonPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.MAIN_COLOR,
         title: Text(
-          '$title',
-          style: TextStyle(color: AppColors.ELEMENTS_COLOR),
+          title,
+          style: const TextStyle(color: AppColors.ELEMENTS_COLOR),
         ),
       ),
     );
