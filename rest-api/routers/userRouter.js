@@ -3,6 +3,7 @@ const UserController = require('../controllers/UserController.js')
 
 user.get('/bookmarks', UserController.getBookmarks)
 user.post('/bookmarks', UserController.addBookmarks)
+user.delete('/bookmarks', UserController.deleteBookmarks)
 
 user.get('/', UserController.getAll)
 user.put('/', UserController.update)
