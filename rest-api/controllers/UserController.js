@@ -82,6 +82,29 @@ class UserController {
         const bookmarks = await UserService.getBookmarks(user);
         res.json({ bookmarks })
     }
+
+    async addBookmarks(req, res) {
+        let user = req.user;
+        const { course } = req.body;
+        if (!user || !course) {
+            return res.sendStatus(400)
+        }
+
+        user = await UserService.findById(user._id)
+        if (user.bookmarks.includes(course)) {
+            return res.status(409).json({message: `Course with id ${course} already exists in user bookmarks`});
+        }
+        user.bookmarks.push(course);
+
+        user = await UserService.update(user);
+
+        const bookmarksAdded = user.bookmarks.includes(course);
+        if (bookmarksAdded) {
+            res.json({ bookmarks: user.bookmarks });
+        } else {
+            res.sendStatus(500);
+        }
+    }
 }
 
 module.exports = new UserController()
