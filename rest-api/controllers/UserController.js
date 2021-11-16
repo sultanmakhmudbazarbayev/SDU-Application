@@ -72,6 +72,16 @@ class UserController {
             res.sendStatus(500)
         }
     }
+
+    async getBookmarks(req, res) {
+        const user = req.user;
+        if (!user) {
+            return res.sendStatus(400)
+        }
+
+        const bookmarks = await UserService.getBookmarks(user);
+        res.json({ bookmarks })
+    }
 }
 
 module.exports = new UserController()

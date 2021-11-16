@@ -38,6 +38,11 @@ class UserService {
             return false;
         }
     }
+
+    async getBookmarks(user){
+        const bookmarks = (await User.findById(user._id, 'bookmarks')).bookmarks;
+        return bookmarks;
+    }
 }
 
 module.exports = new UserService();
