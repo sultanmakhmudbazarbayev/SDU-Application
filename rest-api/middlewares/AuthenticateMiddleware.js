@@ -9,7 +9,7 @@ module.exports = async function validate(req, res, next) {
             if (err) {
                 return res.status(400).json(err)
             }
-            req.user = await UserService.findById(user.id)
+            req.user = await UserService.findById(user._id)
         }
         req.isAuthenticated = req.user ? true : false;
         next()

@@ -5,16 +5,16 @@ import 'package:project/screens/register_screen.dart';
 import 'package:project/services/auth_service.dart';
 import 'package:project/wrapper.dart';
 import 'package:provider/provider.dart';
-import 'pages/navigation_bar.dart';
-import 'pages/constants.dart' as AppColors;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -27,16 +27,16 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: 'Monsterrat',
-          textSelectionTheme: TextSelectionThemeData(
+          textSelectionTheme: const TextSelectionThemeData(
             cursorColor: Color(0xFF131315),
           ),
         ),
-        color: Color(0xFFF3F5F7),
+        color: const Color(0xFFF3F5F7),
         initialRoute: '/',
         routes: {
-          '/': (context) => Wrapper(),
-          '/login': (context) => LoginScreen(),
-          '/register': (context) => RegisterScreen(),
+          '/': (context) => const Wrapper(),
+          '/login': (context) => const LoginScreen(),
+          '/register': (context) => const RegisterScreen(),
         },
       ),
     );

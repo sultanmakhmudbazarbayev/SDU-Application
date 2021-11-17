@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'home/navigation_drawer_widget.dart';
 import 'navigation/bottom_navigation_bar.dart';
@@ -16,12 +15,12 @@ class NavigationBar extends StatefulWidget {
 }
 
 class _NavigationBarState extends State<NavigationBar> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  List<Widget> _screens = <Widget>[
-    Home(),
-    Search(),
-    Bookmarks(),
+  final List<Widget> _screens = <Widget>[
+    const Home(),
+    const Search(),
+    const Bookmarks(),
   ];
 
   final List<String> _arrayOfTitles = ['Study', 'Search', 'Bookmarks'];

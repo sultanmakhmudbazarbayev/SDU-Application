@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'lesson_page.dart';
 
@@ -29,7 +27,7 @@ class LessonCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: 20,
                   right: 20,
                   top: 20,
@@ -41,7 +39,7 @@ class LessonCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                         left: 0,
                         right: 0,
                         top: 0,
@@ -50,7 +48,7 @@ class LessonCard extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          '$header',
+                          header,
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
@@ -58,22 +56,20 @@ class LessonCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          '$description',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                          ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        description,
+                        style: const TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              new Spacer(),
+              const Spacer(),
             ],
           ),
           onTap: () {
