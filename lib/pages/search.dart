@@ -30,7 +30,7 @@ class _SearchState extends State<Search> {
   Future<void> getQuotes(query) async {
     titles = [];
     authors = [];
-    String url = "http://10.0.2.2:5000/?query=$query";
+    String url = "http://datlas.pythonanywhere.com/query/?query=$query";
     http.Response response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       setState(() {
