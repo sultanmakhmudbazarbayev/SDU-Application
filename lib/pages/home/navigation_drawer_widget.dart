@@ -3,7 +3,7 @@ import 'package:project/pages/home/menubar_pages/messages.dart';
 import 'package:project/pages/home/menubar_pages/notifications.dart';
 import 'package:project/pages/home/menubar_pages/profile_page.dart';
 import 'package:project/pages/home/menubar_pages/communities.dart';
-import 'package:project/pages/home/my_lessons.dart';
+import 'package:project/pages/home/menubar_pages/my_lessons.dart';
 import 'package:project/screens/login_screen.dart';
 import 'package:project/services/auth_service.dart';
 import 'package:provider/provider.dart';
