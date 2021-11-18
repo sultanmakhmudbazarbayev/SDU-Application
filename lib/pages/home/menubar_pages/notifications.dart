@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Notifications extends StatefulWidget {
-  const Notifications({ Key key }) : super(key: key);
+  const Notifications({Key key}) : super(key: key);
 
   @override
   _NotificationsState createState() => _NotificationsState();
@@ -10,8 +10,18 @@ class Notifications extends StatefulWidget {
 class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text(
+          "Notifications",
+          style: TextStyle(fontSize: 22, color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
+      body: Container(
+        child: Center(child: Text("In Process")),
+      ),
     );
   }
 }

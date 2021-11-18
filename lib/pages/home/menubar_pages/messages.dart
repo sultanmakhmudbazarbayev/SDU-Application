@@ -10,6 +10,18 @@ class Messages extends StatefulWidget {
 class _MessagesState extends State<Messages> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text(
+          "Messages",
+          style: TextStyle(fontSize: 22, color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
+      body: Container(
+        child: Center(child: Text("In Process")),
+      ),
+    );
   }
 }

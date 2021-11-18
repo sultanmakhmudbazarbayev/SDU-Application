@@ -10,6 +10,18 @@ class QASDUAcademy extends StatefulWidget {
 class _QASDUAcademyState extends State<QASDUAcademy> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text(
+          "QA SDU Academy",
+          style: TextStyle(fontSize: 22, color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
+      body: Container(
+        child: Center(child: Text("In Process")),
+      ),
+    );
   }
 }
