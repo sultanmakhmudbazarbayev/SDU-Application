@@ -10,6 +10,11 @@ class CourseService {
         let course = await Course.findById(id)
         return course;
     }
+
+    async findAllVideosById(id){
+        let videos = (await Course.findById(id)).videos;
+        return videos;
+    }
 }
 
 module.exports = new CourseService();

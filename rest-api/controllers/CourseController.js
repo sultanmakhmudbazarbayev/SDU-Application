@@ -22,6 +22,18 @@ class CourseController {
         if (!course) return res.status(200).json({ message: "Course not exists" })
         res.json(course);
     }
+
+    async findAllVideos(req, res) {
+        const { id } = req.params;
+        let videos = [];
+        if (id) {
+            videos = await CourseService.findAllVideosById(id);
+        } else {
+            res.json({ message: "Enter id" })
+        }
+        if (!videos.length) return res.status(200).json({ message: "Videos not exists" })
+        res.json(videos);
+    }
 }
 
 module.exports = new CourseController()
