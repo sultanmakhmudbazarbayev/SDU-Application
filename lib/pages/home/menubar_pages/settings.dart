@@ -119,7 +119,7 @@ class _SettingsState extends State<Settings> {
                     fontSize: 16, letterSpacing: 2, color: Colors.white),
               ),
             ),
-          )
+          ) 
         ]),
       ),
     );

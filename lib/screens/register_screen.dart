@@ -28,7 +28,7 @@ class RegisterScreen extends StatelessWidget {
         await authService.createUserWithEmailAndPassword(email, password);
 
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const NavigationBar()));
+            MaterialPageRoute(builder: (context) => const NavigationBar1()));
       } on FirebaseAuthException catch (error) {
         Fluttertoast.showToast(
             msg: error.message, gravity: ToastGravity.CENTER);

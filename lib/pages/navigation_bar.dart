@@ -7,14 +7,14 @@ import 'bookmarks.dart';
 import 'search.dart';
 import 'home.dart';
 
-class NavigationBar extends StatefulWidget {
-  const NavigationBar({Key key}) : super(key: key);
+class NavigationBar1 extends StatefulWidget {
+  const NavigationBar1({Key key}) : super(key: key);
 
   @override
-  _NavigationBarState createState() => _NavigationBarState();
+  _NavigationBar1State createState() => _NavigationBar1State();
 }
 
-class _NavigationBarState extends State<NavigationBar> {
+class _NavigationBar1State extends State<NavigationBar1> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final List<Widget> _screens = <Widget>[
